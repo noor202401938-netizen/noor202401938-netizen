@@ -2,7 +2,7 @@
 
 <div align="center">
   
-### *"I don't just write code — I design systems that think, learn, and scale."*
+### *"I don't just write code... I design systems that think, learn, and scale."*
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=2E9EF7&center=true&vCenter=true&width=435&lines=Software+Engineering+Student;AI+%26+Automation+Builder;Founder+%7C+Problem+Solver;Turning+Ideas+into+Products)](https://git.io/typing-svg)
 
