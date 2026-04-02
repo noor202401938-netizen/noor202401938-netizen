@@ -181,7 +181,7 @@ Creating AI that generates value, not just hype
 ---
 
 <div align="center">
-**🔔 Follow for updates on my building journey**
+🔔 Follow for updates on my building journey
 
 *Last updated: April 2026*
 
