@@ -86,33 +86,6 @@ graph LR
 
 </div>
 
-```python
-class NoorFatima:
-    def __init__(self):
-        self.primary_language = "Python"
-        self.expertise = [
-            "Automation Systems",
-            "AI/ML Models", 
-            "Data Analysis Pipelines",
-            "Backend Architecture"
-        ]
-        self.currently_mastering = ["Generative AI", "ML Ops", "System Design"]
-    
-    def build_philosophy(self):
-        return {
-            "focus": "AI that is not just impressive — but actually useful",
-            "approach": "Ship fast, iterate faster, learn constantly",
-            "mindset": "Every line of code should solve a real problem"
-        }
-    
-    def current_mission(self):
-        return [
-            "📈 Scaling SixtyHours.tech & Autometiq.com",
-            "🧠 Going deeper into AI systems",
-            "🚀 Building products people actually use"
-        ]
-```
-
 ---
 
 ## 🧠 **Deep Focus Areas**
