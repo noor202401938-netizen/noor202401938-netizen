@@ -162,9 +162,7 @@ Creating AI that generates value, not just hype
 <div align="center">
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Noor-Fatima2408)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR_LINKEDIN)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:YOUR_EMAIL)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sixtyhours.tech)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:noor.202401938@gcuf.edu.pk)
 
 </div>
 
@@ -183,8 +181,7 @@ Creating AI that generates value, not just hype
 ---
 
 <div align="center">
-  
-**⭐ Star my repos if you find value | 🔔 Follow for updates on my building journey**
+**🔔 Follow for updates on my building journey**
 
 *Last updated: April 2026*
 
