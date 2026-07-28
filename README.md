@@ -1,15 +1,15 @@
 # <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=180&section=header&text=Noor%20Fatima&fontSize=40" alt="banner" />
-  <br/>
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=7C3AED&center=true&vCenter=true&width=700&lines=Building+AI+systems+that+save+hours;Designing+products+that+scale;Turning+ideas+into+real+impact" alt="typing animation" />
-  <br/>
-  <img src="https://img.shields.io/badge/Software+Engineering+Student-Builder%20%26%20Innovator-7C3AED?style=for-the-badge&logo=rocket&logoColor=white" alt="role badge" />
-  <img src="https://img.shields.io/badge/Focus-AI+%7C+Automation%20%7C+Products-0EA5E9?style=for-the-badge&logo=brain&logoColor=white" alt="focus badge" />
+  <br />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=7C3AED&center=true&vCenter=true&width=700&lines=Software+Engineering+Student;AI+%26+Automation+Builder;Founder+%7C+Problem+Solver;Building+with+purpose" alt="typing animation" />
+  <br />
+  <img src="https://img.shields.io/badge/Focus-AI+%7C+Automation%20%7C+Product+Design-0EA5E9?style=for-the-badge&logo=rocket&logoColor=white" alt="focus badge" />
+  <img src="https://img.shields.io/badge/Status-Building+in+public-8B5CF6?style=for-the-badge&logo=github&logoColor=white" alt="status badge" />
 </div>
 
 <div align="center">
 
-### “I don’t just write code — I design systems that learn, scale, and create real value.”
+### “I turn ideas into thoughtful systems, elegant products, and measurable impact.”
 
 </div>
 
@@ -17,21 +17,26 @@
 
 ## ✨ About Me
 
+I’m a software engineering student and builder who is passionate about creating intelligent systems that simplify work, amplify human potential, and scale with purpose. My interests sit at the intersection of AI, automation, product thinking, and real-world problem solving.
+
 <div align="center">
 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3>🧠 Who I Am</h3>
-      <p>I’m a builder, founder, and problem-solver focused on turning ideas into products that make work smarter, faster, and more human.</p>
-      <p>My work sits at the intersection of <b>AI</b>, <b>automation</b>, and <b>product thinking</b>.</p>
+      <h3>🧠 What I Do</h3>
+      <ul>
+        <li>Design and build AI-powered solutions</li>
+        <li>Create automation systems that reduce friction</li>
+        <li>Develop products with clarity, scalability, and impact</li>
+      </ul>
     </td>
     <td width="50%" valign="top">
-      <h3>⚙️ My Approach</h3>
+      <h3>⚙️ My Philosophy</h3>
       <ul>
-        <li>Build systems that remove repetitive work</li>
-        <li>Design for scale, clarity, and long-term impact</li>
-        <li>Learn fast, ship often, and improve continuously</li>
+        <li>Build with intention, not noise</li>
+        <li>Choose systems over shortcuts</li>
+        <li>Stay consistent and ship meaningful work</li>
       </ul>
     </td>
   </tr>
@@ -41,7 +46,7 @@
 
 ---
 
-## 🚀 What I’m Building
+## 🚀 Current Projects
 
 <div align="center">
 
@@ -49,21 +54,13 @@
   <tr>
     <td width="50%" valign="top">
       <h3>🧠 SixtyHours.tech</h3>
-      <p><b>AI-powered software solutions and automation systems</b></p>
-      <img src="https://img.shields.io/badge/Goal-60%2B+%20hours%20saved-22C55E?style=flat-square&logo=bolt&logoColor=white" alt="goal badge" />
-      <br/><br/>
-      <img src="https://img.shields.io/badge/Focus-Automation-8B5CF6?style=flat-square" />
-      <img src="https://img.shields.io/badge/Impact-Efficiency-3B82F6?style=flat-square" />
-      <img src="https://img.shields.io/badge/Mode-Product%20building-10B981?style=flat-square" />
+      <p>Building AI-powered software solutions and automation systems focused on saving time and improving efficiency.</p>
+      <img src="https://img.shields.io/badge/Goal-60%2B%20hours%20saved-22C55E?style=flat-square&logo=bolt&logoColor=white" alt="goal badge" />
     </td>
     <td width="50%" valign="top">
       <h3>⚙️ Autometiq.com</h3>
-      <p><b>A demand engine for modern sales teams</b></p>
+      <p>Designing a demand engine for modern sales teams that turns data into smarter outreach and predictable growth.</p>
       <img src="https://img.shields.io/badge/Goal-Predictable%20growth-F59E0B?style=flat-square&logo=chart-line&logoColor=white" alt="goal badge" />
-      <br/><br/>
-      <img src="https://img.shields.io/badge/Focus-Outreach-EC4899?style=flat-square" />
-      <img src="https://img.shields.io/badge/Signal-Data%20driven-F97316?style=flat-square" />
-      <img src="https://img.shields.io/badge/Outcome-Scalable%20revenue-6366F1?style=flat-square" />
     </td>
   </tr>
 </table>
@@ -72,7 +69,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Core Skills
 
 <div align="center">
 
@@ -86,41 +83,21 @@
 
 ---
 
-## 🌟 Core Focus Areas
+## 📊 GitHub Insights
 
 <div align="center">
-
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <h3>🤖 Machine Learning</h3>
-      <p>Building models that learn, adapt, and improve over time.</p>
-    </td>
-    <td align="center" width="33%">
-      <h3>📊 Data Analysis</h3>
-      <p>Turning raw data into meaningful insight and direction.</p>
-    </td>
-    <td align="center" width="33%">
-      <h3>🧬 Generative AI</h3>
-      <p>Creating AI experiences that create value, not just hype.</p>
-    </td>
-  </tr>
-</table>
-
-</div>
-
----
-
-## 📊 GitHub Analytics
-
-<div align="center">
-  <img height="180em" src="https://github-readme-stats-sigma-five.vercel.app/api?username=Noor-Fatima2408&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true" alt="GitHub stats" />
-  <img height="180em" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Noor-Fatima2408&layout=compact&langs_count=8&theme=tokyonight" alt="Top languages" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Noor-Fatima2408&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true" alt="GitHub stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Noor-Fatima2408&layout=compact&theme=radical&hide_border=true" alt="Top languages" />
 </div>
 
 <div align="center">
-  <br/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Noor-Fatima2408&theme=tokyonight" alt="GitHub streak" />
+  <br />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Noor-Fatima2408&theme=radical&hide_border=true" alt="GitHub streak" />
+</div>
+
+<div align="center">
+  <br />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Noor-Fatima2408&theme=react-dark&hide_border=true" alt="Contribution graph" />
 </div>
 
 ---
@@ -130,31 +107,16 @@
 <div align="center">
 
 ```diff
-+ Scaling SixtyHours.tech and Autometiq.com
-+ Building AI systems that remove 60+ hours of manual work weekly
-+ Shipping products with measurable real-world impact
-+ Documenting the journey in public
++ Build thoughtful AI systems that save time and create value
++ Scale products with a clear focus on impact and quality
++ Keep learning, shipping, and improving every day
 ```
 
 </div>
 
 ---
 
-## 💡 Principles
-
-<div align="center">
-
-| Principle | Meaning |
-|---|---|
-| **Build > Talk** | Ship code, not opinions |
-| **Systems > Shortcuts** | Sustainable solutions over quick fixes |
-| **Consistency > Motivation** | Show up daily, regardless of mood |
-
-</div>
-
----
-
-## 🌐 Let’s Connect
+## 🌐 Connect With Me
 
 <div align="center">
 
@@ -171,13 +133,6 @@
 
 If you’re building something meaningful, I’d love to connect.
 
-<img src="https://komarev.com/ghpvc/?username=Noor-Fatima2408&color=blueviolet&style=for-the-badge" alt="Profile views" />
+<img src="https://komarev.com/ghpvc/?username=Noor-Fatima2408&color=7C3AED&style=for-the-badge" alt="Profile views" />
 
-</div>
-
----
-
-<div align="center">
-  <p>🔔 Follow for updates on my building journey</p>
-  <p><i>Last updated: July 2026</i></p>
 </div>
