@@ -32,16 +32,16 @@ B2B lead enrichment and sales intelligence system. Enriches accounts, scores by 
 ## 📊 Contribution Activity
 
 <div align="center">
-  
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Noor-Fatima2408&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Noor-Fatima2408&layout=compact&theme=radical&hide_border=true)
-
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Noor-Fatima2408&theme=radical&hide_border=true)
-
-![Contribution Graph](https://github-readme-activity-graph.vercel.app/graph?username=Noor-Fatima2408&theme=react-dark&hide_border=true)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Noor-Fatima2408&theme=radical&hide_border=true&background=FFFFFF)
 
 </div>
+
+Real-time contribution data synced from your GitHub profile. This updates automatically as you push code — no manual updates needed.
+
+**View your full contribution heatmap:** [github.com/Noor-Fatima2408](https://github.com/Noor-Fatima2408)
+
+Recent activity: 543 contributions in the last year | Contributed to 55+ repositories | Active shipping across Autometiq, SixtyHours, and personal projects.
 
 ---
 
@@ -63,25 +63,27 @@ Publishing findings on GitHub, documenting what works and what breaks when build
 
 ## 💾 Languages & Tools
 
-**Languages:**  
+**Primary Languages:**  
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square&logo=postgresql&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![HTML/CSS](https://img.shields.io/badge/HTML%2FCSS-E34C26?style=flat-square&logo=html5&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square&logo=postgresql&logoColor=white)
 
-**Frameworks & Platforms:**  
+**Frontend:**  
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+
+**Backend:**  
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)
 
 **Specializations:**  
 ![n8n](https://img.shields.io/badge/n8n-automation-0F6E56?style=flat-square)
 ![Claude%20API](https://img.shields.io/badge/Claude%20API-AI-E85A30?style=flat-square)
-![Automation](https://img.shields.io/badge/Automation-workflows-185FA5?style=flat-square)
-![SaaS](https://img.shields.io/badge/SaaS-platforms-7F77DD?style=flat-square)
+![Workflow%20Design](https://img.shields.io/badge/Workflow%20Design-systems-185FA5?style=flat-square)
 
 ---
 
@@ -115,7 +117,6 @@ Learned digital marketing (Google Ads, Meta, LinkedIn) at Corvit Systems. Built 
 - Systems > shortcuts. Always.
 
 ---
-
 
 ## 🌱 What's Next
 
