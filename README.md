@@ -1,138 +1,93 @@
-# <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=180&section=header&text=Noor%20Fatima&fontSize=40" alt="banner" />
-  <br />
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=7C3AED&center=true&vCenter=true&width=700&lines=Software+Engineering+Student;AI+%26+Automation+Builder;Founder+%7C+Problem+Solver;Building+with+purpose" alt="typing animation" />
-  <br />
-  <img src="https://img.shields.io/badge/Focus-AI+%7C+Automation%20%7C+Product+Design-0EA5E9?style=for-the-badge&logo=rocket&logoColor=white" alt="focus badge" />
-  <img src="https://img.shields.io/badge/Status-Building+in+public-8B5CF6?style=for-the-badge&logo=github&logoColor=white" alt="status badge" />
-</div>
+# Noor Fatima
 
-<div align="center">
-
-### “I turn ideas into thoughtful systems, elegant products, and measurable impact.”
-
-</div>
+*Building AI-first solutions for Pakistani SMEs. Founder of SixtyHours.tech and Autometiq.com. BS Software Engineering @GCUF.*
 
 ---
 
-## ✨ About Me
+## What I Build
 
-I’m a software engineering student and builder who is passionate about creating intelligent systems that simplify work, amplify human potential, and scale with purpose. My interests sit at the intersection of AI, automation, product thinking, and real-world problem solving.
+I spend most of my time on two ventures:
 
-<div align="center">
+**SixtyHours.tech** — An AI automation agency solving real problems for Pakistani businesses. We design and deploy automation systems using Claude API, n8n, Supabase, and Next.js. Most clients are e-commerce, food delivery, logistics, and clinic operators who need to run leaner operations. I frame my work in terms of client projects, not "my portfolio."
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🧠 What I Do</h3>
-      <ul>
-        <li>Design and build AI-powered solutions</li>
-        <li>Create automation systems that reduce friction</li>
-        <li>Develop products with clarity, scalability, and impact</li>
-      </ul>
-    </td>
-    <td width="50%" valign="top">
-      <h3>⚙️ My Philosophy</h3>
-      <ul>
-        <li>Build with intention, not noise</li>
-        <li>Choose systems over shortcuts</li>
-        <li>Stay consistent and ship meaningful work</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+**Autometiq.com** — A B2B lead enrichment and sales intelligence platform. The core product: take a CSV of target accounts, enrich them with real-time data (company info, hiring signals, revenue intel), score them by fit, then auto-generate personalized outreach sequences. Built on Claude API for intelligent reply classification and lead scoring. We're targeting Pakistani SMEs who want predictable pipeline growth without hiring a full SDR team.
 
-</div>
+I'm also working on **Pingo**, a Gen Z social connectivity app with vibe-based matching and real-time mini-games — and exploring content creation (educational YouTube, Etsy digital products, personal brand building).
 
 ---
 
-## 🚀 Current Projects
+## The Stack
 
-<div align="center">
+**Frontend**: Next.js 14, React, Tailwind CSS, shadcn/ui, TypeScript
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🧠 SixtyHours.tech</h3>
-      <p>Building AI-powered software solutions and automation systems focused on saving time and improving efficiency.</p>
-      <img src="https://img.shields.io/badge/Goal-60%2B%20hours%20saved-22C55E?style=flat-square&logo=bolt&logoColor=white" alt="goal badge" />
-    </td>
-    <td width="50%" valign="top">
-      <h3>⚙️ Autometiq.com</h3>
-      <p>Designing a demand engine for modern sales teams that turns data into smarter outreach and predictable growth.</p>
-      <img src="https://img.shields.io/badge/Goal-Predictable%20growth-F59E0B?style=flat-square&logo=chart-line&logoColor=white" alt="goal badge" />
-    </td>
-  </tr>
-</table>
+**Backend**: Supabase (PostgreSQL), Prisma ORM, FastAPI, Fastify, Node.js
 
-</div>
+**Automation & AI**: n8n (workflow orchestration), Claude API (text intelligence), Twilio (SMS/phone), Deepgram (speech-to-text), ElevenLabs (voice synthesis)
+
+**Databases**: PostgreSQL, Supabase (real-time), Redis (caching when needed)
+
+**Payments**: Stripe, JazzCash, Easypaisa (local PKR options)
+
+**Deployment**: Vercel, Railway, self-hosted for n8n
+
+**Key integrations**: HubSpot CRM, Jina.ai (web extraction), Brave Search API, Slack, WhatsApp Business API
 
 ---
 
-## 🛠️ Core Skills
+## Current Focus
 
-<div align="center">
+**Autometiq backend**: Designing and implementing a three-stage pipeline—lead scoring (ICP-based, Claude API + real data enrichment), reply classification (Claude) using reply patterns to auto-determine next actions, and monthly rescoring logic to keep pipeline intelligence fresh.
 
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-<img src="https://img.shields.io/badge/AI-412991?style=for-the-badge&logo=ai&logoColor=white" alt="AI" />
-<img src="https://img.shields.io/badge/Machine%20Learning-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="Machine Learning" />
-<img src="https://img.shields.io/badge/Data%20Analysis-E37400?style=for-the-badge&logo=pandas&logoColor=white" alt="Data Analysis" />
-<img src="https://img.shields.io/badge/Automation-4F46E5?style=for-the-badge&logo=robot&logoColor=white" alt="Automation" />
+**SixtyHours growth**: Building case studies and positioning the agency for mid-market Pakistani SME clients. Creating detailed PRDs and technical requirement documents for internal automation projects. Writing SEO content and client-facing documentation.
 
-</div>
+**Building in public**: Maintaining GitHub, writing about product development, documenting what works and what doesn't for Pakistani startup constraints (ISP reliability, payment infrastructure, talent availability).
 
 ---
 
-## 📊 GitHub Insights
+## What Shaped My Thinking
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Noor-Fatima2408&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true" alt="GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Noor-Fatima2408&layout=compact&theme=radical&hide_border=true" alt="Top languages" />
-</div>
+Early work in digital marketing (Google Ads, Meta Ads, LinkedIn) + social media management at Corvit Systems taught me how to speak to real business problems. That moved into n8n automation, then Claude API, then product building. I built:
 
-<div align="center">
-  <br />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Noor-Fatima2408&theme=radical&hide_border=true" alt="GitHub streak" />
-</div>
+- An SEO audit SaaS (Python crawler, WordPress REST API, ReportLab PDFs)
+- A social media automation pipeline (Google Drive → Facebook/Instagram/TikTok via n8n + Claude)
+- An Urdu voice support agent prototype (Twilio + Deepgram + ElevenLabs)
+- A Smart Queue Management System (NCS project), Learning Management System (semester project), desktop cat companion app (Tauri), Pingo social app (Socket.IO, gamification)
 
-<div align="center">
-  <br />
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Noor-Fatima2408&theme=react-dark&hide_border=true" alt="Contribution graph" />
-</div>
+My academic work included a forex indicator ML project (EUR/USD, walk-forward validation, SHAP analysis) and coursework in DBMS, OS, DSA.
 
 ---
 
-## 🎯 Current Mission
+## What I'm Learning
 
-<div align="center">
-
-```diff
-+ Build thoughtful AI systems that save time and create value
-+ Scale products with a clear focus on impact and quality
-+ Keep learning, shipping, and improving every day
-```
-
-</div>
+- Product-market fit for SaaS in underserved markets (Pakistan's e-commerce logistics bottleneck is real)
+- How to talk to buyers: what questions to ask, when to say no, pricing psychology
+- Building and retaining founding teams when early money is tight
+- Bridging the gap between "we built something cool" and "this solves a real business problem"
 
 ---
 
-## 🌐 Connect With Me
+## How to Work With Me
 
-<div align="center">
+**For SixtyHours clients**: If you're an e-commerce brand, delivery business, or clinic in Pakistan struggling with manual data workflows, I design systems that save you 5-60 hours per month. I work in sprints and deliver documented, hand-offable automation.
 
-<a href="https://github.com/Noor-Fatima2408"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
-<a href="mailto:noor.202401938@gcuf.edu.pk"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+**For Autometiq**: We're in early pilot. If you're a Pakistani B2B software company or agency struggling to build predictable lead quality, let's talk.
 
-</div>
+**For collaboration**: I'm open to technical consulting on n8n + Claude API workflows, backend architecture for SaaS platforms, or mentoring other founders building in Pakistan. Direct message on LinkedIn or GitHub.
 
 ---
 
-<div align="center">
+## Where to Find Me
 
-### ⚡ Building in public. Learning fast. Thinking long-term.
+- **GitHub**: (https://github.com/noor202401938-netizen) (code, repos, pinned projects)
+- **LinkedIn**: Active with case studies, founder updates, and content about building for Pakistani SMEs
+- **Email**: noor.202401938@gcuf.edu.pk
 
-If you’re building something meaningful, I’d love to connect.
+---
 
-<img src="https://komarev.com/ghpvc/?username=Noor-Fatima2408&color=7C3AED&style=for-the-badge" alt="Profile views" />
+## Random Notes
 
-</div>
+- I move fast and overthink later. Bias toward shipping over perfection.
+- I care about systems that scale. A solution that doesn't hand off cleanly isn't a solution.
+- I think in workflows, not features. Every automation should reduce friction and answer a specific question.
+- Building in Pakistan forces you to understand the *real* constraints: power, internet, payment rails. That clarity makes you build better products.
+- I believe in writing things down. Ideas that survive being written down are usually worth pursuing.
