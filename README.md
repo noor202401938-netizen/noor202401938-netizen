@@ -1,128 +1,213 @@
-# Noor Fatima
-
-> Building AI-first solutions for Pakistani SMEs. Founder of **SixtyHours.tech** and **Autometiq.com**. BS Software Engineering @GCUF.
-
----
-
-## 🚀 What I Build
-
-### **SixtyHours.tech** — AI Automation Agency
-Designing and deploying automation systems for Pakistani businesses across e-commerce, food delivery, logistics, and clinics. Focus: saving teams 5–60 hours per month with reliable, documented, hand-offable workflows.
-
-### **Autometiq.com** — Lead Intelligence Platform  
-B2B lead enrichment and sales intelligence system. Enriches accounts, scores by ICP fit, generates personalized outreach sequences using Claude API. Built for Pakistani SMEs pursuing predictable pipeline growth.
-
----
-
-## 🛠️ Tech Stack
-
-| **Frontend** | **Backend** | **AI & Automation** | **Data & Payments** |
-|---|---|---|---|
-| Next.js 14 | Supabase | Claude API | Stripe |
-| React | PostgreSQL | n8n | JazzCash |
-| Tailwind CSS | Prisma ORM | Twilio | Easypaisa |
-| shadcn/ui | FastAPI | Deepgram | Redis |
-| TypeScript | Fastify | ElevenLabs | HubSpot CRM |
-
-**Integrations:** Jina.ai, Brave Search, Slack, WhatsApp API  
-**Deployment:** Vercel, Railway, Docker, Self-hosted
-
----
-
-## 📊 Contribution Activity
-
 <div align="center">
-  
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Noor-Fatima2408&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Noor-Fatima2408&layout=compact&theme=radical&hide_border=true)
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:282A36,50:BD93F9,100:FF79C6&height=220&section=header&text=NOOR%20FATIMA&fontSize=52&fontColor=F8F8F2&animation=fadeIn&fontAlignY=38&desc=AI%20SYSTEMS%20%20%E2%80%A2%20%20AUTOMATION%20%20%E2%80%A2%20%20SOFTWARE&descAlignY=58&descSize=16" width="100%"/>
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Noor-Fatima2408&theme=radical&hide_border=true)
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=18&duration=2800&pause=900&color=BD93F9&center=true&vCenter=true&width=700&lines=Building+AI-first+systems+for+Pakistani+SMEs;Founder+%40+SixtyHours.tech+%2B+Autometiq.com;Software+Engineering+%40+GCUF;Systems+%3E+shortcuts.+Always." alt="Typing intro" />
 
-![Contribution Graph](https://github-readme-activity-graph.vercel.app/graph?username=Noor-Fatima2408&theme=react-dark&hide_border=true)
+<br/>
+
+[![GitHub](https://img.shields.io/badge/GitHub-282A36?style=for-the-badge&logo=github&logoColor=F8F8F2)](https://github.com/noor202401938-netizen)
+[![Email](https://img.shields.io/badge/Email-282A36?style=for-the-badge&logo=gmail&logoColor=FF79C6)](mailto:noor.202401938@gcuf.edu.pk)
 
 </div>
 
 ---
 
-## 🎯 Current Focus
+## `~/noor/profile`
 
-**Autometiq Backend Pipeline**  
-Designing a three-stage lead scoring system: ICP-based initial scoring → Claude API reply classification → monthly rescoring logic. Building predictable lead quality at scale.
+```text
+$ whoami
 
-**SixtyHours Client Projects**  
-Developing case studies, positioning the agency for mid-market Pakistani SMEs, creating detailed automation documentation and PRDs for internal workflows.
+NOOR FATIMA
+Software Engineer · Founder · Builder
 
-**Product & Market Fit**  
-Understanding real bottlenecks in Pakistani e-commerce (inventory sync, order routing), logistics (last-mile tracking, driver management), clinic operations (appointment automation, patient comms). Shipping solutions that hand off cleanly.
+> building AI-first systems for Pakistani SMEs
+> focused on automation, AI products, and reliable infrastructure
+> based in Faisalabad, Pakistan 🇵🇰
 
-**Building in Public**  
-Publishing findings on GitHub, documenting what works and what breaks when building in Pakistan (ISP reliability, payment rails, talent density). Sharing wins and learnings.
+$ status
 
----
-
-## 💾 Languages & Tools
-
-**Languages:**  
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square&logo=postgresql&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![HTML/CSS](https://img.shields.io/badge/HTML%2FCSS-E34C26?style=flat-square&logo=html5&logoColor=white)
-
-**Frameworks & Platforms:**  
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)
-
-**Specializations:**  
-![n8n](https://img.shields.io/badge/n8n-automation-0F6E56?style=flat-square)
-![Claude%20API](https://img.shields.io/badge/Claude%20API-AI-E85A30?style=flat-square)
-![Automation](https://img.shields.io/badge/Automation-workflows-185FA5?style=flat-square)
-![SaaS](https://img.shields.io/badge/SaaS-platforms-7F77DD?style=flat-square)
+● BUILDING
+● SHIPPING
+● LEARNING
+```
 
 ---
 
-## 🔗 Connect
+## `01 / SYSTEMS`
 
-- **Email:** noor.202401938@gcuf.edu.pk
+### 🧠 SixtyHours.tech
+**AI Automation Agency**
 
----
+Designing and deploying automation systems for Pakistani businesses across:
 
-## 📈 Background & Philosophy
+`E-COMMERCE` · `FOOD DELIVERY` · `LOGISTICS` · `CLINICS`
 
-**Early Career:**  
-Learned digital marketing (Google Ads, Meta, LinkedIn) at Corvit Systems. Built social media automation pipelines and client campaigns. This phase taught me how to think in workflows and talk to business problems.
-
-**Product Building:**  
-- Built an SEO audit SaaS (Python crawler, WordPress REST API integration, ReportLab PDFs)
-- Designed a social media automation system (Google Drive → Facebook/Instagram/TikTok via n8n)
-- Prototyped an Urdu voice support agent (Twilio + Deepgram + ElevenLabs)
-- Created multiple semester projects: Smart Queue Management System, Learning Management System, desktop cat companion app (Tauri), Pingo social app (Socket.IO, real-time games)
-
-**Academic Work:**  
-- Forex indicator ML project (EUR/USD data, walk-forward validation, SHAP analysis)
-- Coursework: DBMS, Operating Systems, Data Structures, Digital Marketing, Entrepreneurship
-
-**What I Learned:**  
-- Product-market fit requires deep understanding of real constraints, not just feature ideation
-- Automation that doesn't hand off cleanly isn't automation — it's technical debt
-- Pakistani markets have unique structural problems (payment rails, internet reliability) that force better product thinking
-- Systems > shortcuts. Always.
+**Mission:** remove repetitive operational work, save **5–60 hours/month**, and leave behind systems that are documented, reliable, and easy to hand off.
 
 ---
 
-## 🌱 What's Next
+### ⚡ Autometiq.com
+**B2B Lead Intelligence Platform**
 
-- Scaling SixtyHours to 10+ concurrent client projects with a repeatable playbook
-- Launching Autometiq to pilot customers and validating lead quality metrics
-- Exploring Etsy as a distribution channel for AI automation templates and guides
-- Building content on YouTube (educational doodle-style videos on AI/automation)
-- Establishing myself as a credible voice for AI automation in South Asia
+AI-powered sales intelligence for Pakistani SMEs.
+
+```text
+ACCOUNT ENRICHMENT
+        ↓
+ICP-BASED SCORING
+        ↓
+AI REPLY CLASSIFICATION
+        ↓
+PERSONALIZED OUTREACH
+        ↓
+MONTHLY RESCORING
+```
+
+**Current question:** can lead quality become predictable?
 
 ---
 
-**Built with purpose. Shipping solutions. Learning fast.**  
-*Based in Faisalabad, Pakistan. Open to collaboration.*
+## `02 / ARSENAL`
+
+### Languages
+
+![Python](https://img.shields.io/badge/Python-282A36?style=for-the-badge&logo=python&logoColor=50FA7B)
+![TypeScript](https://img.shields.io/badge/TypeScript-282A36?style=for-the-badge&logo=typescript&logoColor=8BE9FD)
+![JavaScript](https://img.shields.io/badge/JavaScript-282A36?style=for-the-badge&logo=javascript&logoColor=F1FA8C)
+![SQL](https://img.shields.io/badge/SQL-282A36?style=for-the-badge&logo=postgresql&logoColor=8BE9FD)
+
+### Frontend
+
+![Next.js](https://img.shields.io/badge/Next.js-282A36?style=for-the-badge&logo=next.js&logoColor=F8F8F2)
+![React](https://img.shields.io/badge/React-282A36?style=for-the-badge&logo=react&logoColor=8BE9FD)
+![Tailwind](https://img.shields.io/badge/Tailwind-282A36?style=for-the-badge&logo=tailwindcss&logoColor=8BE9FD)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-282A36?style=for-the-badge&logo=shadcnui&logoColor=F8F8F2)
+
+### Backend & Data
+
+![FastAPI](https://img.shields.io/badge/FastAPI-282A36?style=for-the-badge&logo=fastapi&logoColor=50FA7B)
+![Node.js](https://img.shields.io/badge/Node.js-282A36?style=for-the-badge&logo=node.js&logoColor=50FA7B)
+![Supabase](https://img.shields.io/badge/Supabase-282A36?style=for-the-badge&logo=supabase&logoColor=50FA7B)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-282A36?style=for-the-badge&logo=postgresql&logoColor=8BE9FD)
+![Redis](https://img.shields.io/badge/Redis-282A36?style=for-the-badge&logo=redis&logoColor=FF5555)
+
+### AI & Automation
+
+![Claude](https://img.shields.io/badge/Claude_API-282A36?style=for-the-badge&logo=anthropic&logoColor=FFB86C)
+![n8n](https://img.shields.io/badge/n8n-282A36?style=for-the-badge&logo=n8n&logoColor=FF79C6)
+![Twilio](https://img.shields.io/badge/Twilio-282A36?style=for-the-badge&logo=twilio&logoColor=FF5555)
+![Deepgram](https://img.shields.io/badge/Deepgram-282A36?style=for-the-badge&logo=deepgram&logoColor=8BE9FD)
+![ElevenLabs](https://img.shields.io/badge/ElevenLabs-282A36?style=for-the-badge&logoColor=F8F8F2)
+
+### Infrastructure
+
+![Docker](https://img.shields.io/badge/Docker-282A36?style=for-the-badge&logo=docker&logoColor=8BE9FD)
+![Vercel](https://img.shields.io/badge/Vercel-282A36?style=for-the-badge&logo=vercel&logoColor=F8F8F2)
+![Railway](https://img.shields.io/badge/Railway-282A36?style=for-the-badge&logo=railway&logoColor=BD93F9)
+
+---
+
+## `03 / GITHUB ACTIVITY`
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=noor202401938-netizen&show_icons=true&theme=dracula&hide_border=true&count_private=true&include_all_commits=true" width="49%" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=noor202401938-netizen&layout=compact&theme=dracula&hide_border=true" width="49%" />
+
+<br/>
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=noor202401938-netizen&theme=dracula&hide_border=true" width="70%" />
+
+<br/>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=noor202401938-netizen&theme=dracula&hide_border=true&area=true" width="95%" />
+
+</div>
+
+---
+
+## `04 / BUILT`
+
+| Project | What it does |
+|---|---|
+| **SEO Audit SaaS** | Python crawler + WordPress REST API + automated ReportLab PDF reports |
+| **Social Automation** | Google Drive → Facebook / Instagram / TikTok via n8n |
+| **Urdu Voice Agent** | Twilio + Deepgram + ElevenLabs |
+| **Forex ML System** | EUR/USD data + walk-forward validation + SHAP analysis |
+| **Pingo** | Social app with Socket.IO, real-time communication, and multiplayer games |
+| **Desktop Cat Companion** | Tauri-based desktop application |
+
+---
+
+## `05 / CURRENTLY BUILDING`
+
+```text
+┌─────────────────────────────────────────────────────┐
+│ AUTOMETIQ                                           │
+│ Lead intelligence + AI scoring pipeline             │
+│                                                     │
+│ SIXTYHOURS                                           │
+│ Repeatable automation systems + client playbooks    │
+│                                                     │
+│ PAKISTAN                                             │
+│ AI products built around real operational           │
+│ constraints, not imaginary ones                     │
+└─────────────────────────────────────────────────────┘
+```
+
+### Product & Market
+
+Exploring bottlenecks across:
+
+`E-COMMERCE` · `LOGISTICS` · `CLINICS` · `PAYMENTS` · `CUSTOMER COMMS`
+
+Local constraints such as payment rails, ISP reliability, and fragmented workflows aren't edge cases.
+
+**They're the product requirements.**
+
+---
+
+## `06 / PRINCIPLES`
+
+> **Systems > shortcuts. Always.**
+
+- Product-market fit comes from understanding constraints, not collecting features.
+- Automation that cannot be handed off cleanly becomes technical debt.
+- The best software removes complexity from the person using it.
+- Shipping teaches faster than theorizing.
+- Build for the environment that actually exists.
+
+---
+
+## `07 / NEXT`
+
+```text
+[01] Scale SixtyHours → 10+ concurrent client projects
+[02] Launch Autometiq → pilot customers
+[03] Validate → lead-quality metrics
+[04] Build → reusable AI automation templates
+[05] Publish → AI / automation engineering content
+[06] Document → building software in South Asia
+```
+
+---
+
+## `08 / CONNECT`
+
+<div align="center">
+
+**Faisalabad, Pakistan 🇵🇰**
+
+[![Email](https://img.shields.io/badge/Email-282A36?style=for-the-badge&logo=gmail&logoColor=FF79C6)](mailto:noor.202401938@gcuf.edu.pk)
+[![GitHub](https://img.shields.io/badge/GitHub-282A36?style=for-the-badge&logo=github&logoColor=F8F8F2)](https://github.com/noor202401938-netizen)
+
+<br/>
+
+`Built with purpose. Shipping solutions. Learning fast.`
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF79C6,50:BD93F9,100:282A36&height=100&section=footer" width="100%"/>
+
+</div>
