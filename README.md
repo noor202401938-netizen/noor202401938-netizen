@@ -1,213 +1,150 @@
-<div align="center">
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  NOOR FATIMA — GITHUB PROFILE README
+  Dracula palette · #282a36 #44475a #f8f8f2 #6272a4 #8be9fd #50fa7b #ffb86c
+                     #ff79c6 #bd93f9 #ff5555 #f1fa8c
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:282A36,50:BD93F9,100:FF79C6&height=220&section=header&text=NOOR%20FATIMA&fontSize=52&fontColor=F8F8F2&animation=fadeIn&fontAlignY=38&desc=AI%20SYSTEMS%20%20%E2%80%A2%20%20AUTOMATION%20%20%E2%80%A2%20%20SOFTWARE&descAlignY=58&descSize=16" width="100%"/>
+  SETUP
+  1. Create a repo named exactly: noor202401938-netizen
+  2. Drop this README.md at the repo root.
+  3. Drop the whole assets/ folder next to it.
+  4. Commit. GitHub renders it on your profile automatically.
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=18&duration=2800&pause=900&color=BD93F9&center=true&vCenter=true&width=700&lines=Building+AI-first+systems+for+Pakistani+SMEs;Founder+%40+SixtyHours.tech+%2B+Autometiq.com;Software+Engineering+%40+GCUF;Systems+%3E+shortcuts.+Always." alt="Typing intro" />
+  All SVGs are hand-built and self-contained — no external generators,
+  no web fonts, no scripts. They render identically in GitHub's light
+  and dark themes because they carry their own background.
+═══════════════════════════════════════════════════════════════════════════════
+-->
 
-<br/>
+<img src="assets/hero.svg" width="100%" alt="Noor Fatima — Software Engineer · Founder · Builder. Building AI-first systems for Pakistani SMEs.">
 
-[![GitHub](https://img.shields.io/badge/GitHub-282A36?style=for-the-badge&logo=github&logoColor=F8F8F2)](https://github.com/noor202401938-netizen)
-[![Email](https://img.shields.io/badge/Email-282A36?style=for-the-badge&logo=gmail&logoColor=FF79C6)](mailto:noor.202401938@gcuf.edu.pk)
+<br>
 
-</div>
+<img src="assets/s01-systems.svg" width="100%" alt="01 / SYSTEMS">
 
----
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://sixtyhours.tech">
+        <img src="assets/card-sixtyhours.svg" width="100%" alt="SixtyHours — engineering talent, built from scratch">
+      </a>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://autometiq.com">
+        <img src="assets/card-autometiq.svg" width="100%" alt="Autometiq — AI operations for Pakistani SMEs">
+      </a>
+    </td>
+  </tr>
+</table>
 
-## `~/noor/profile`
+<br>
 
-```text
-$ whoami
+<img src="assets/s02-arsenal.svg" width="100%" alt="02 / ARSENAL">
 
-NOOR FATIMA
-Software Engineer · Founder · Builder
+<img src="assets/arsenal.svg" width="100%" alt="Languages: Python, TypeScript, JavaScript, SQL. AI/Automation: Claude, n8n, Twilio, Deepgram, ElevenLabs. Backend: FastAPI, Fastify, Supabase, PostgreSQL, Redis. Frontend: Next.js, React, Tailwind, shadcn/ui. Infra: Docker, Vercel, Railway, GitHub Actions.">
 
-> building AI-first systems for Pakistani SMEs
-> focused on automation, AI products, and reliable infrastructure
-> based in Faisalabad, Pakistan 🇵🇰
+<br>
 
-$ status
+<img src="assets/s03-activity.svg" width="100%" alt="03 / ACTIVITY">
 
-● BUILDING
-● SHIPPING
-● LEARNING
+<table>
+  <tr>
+    <td width="58%">
+      <img src="https://github-readme-stats.vercel.app/api?username=noor202401938-netizen&show_icons=true&include_all_commits=true&count_private=true&hide_title=true&hide_rank=false&border_color=44475a&border_radius=13&bg_color=21222c&title_color=bd93f9&icon_color=8be9fd&text_color=f8f8f2&ring_color=ff79c6" width="100%" alt="GitHub stats">
+    </td>
+    <td width="42%">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=noor202401938-netizen&layout=compact&langs_count=8&hide_title=true&border_color=44475a&border_radius=13&bg_color=21222c&title_color=bd93f9&text_color=f8f8f2" width="100%" alt="Most used languages">
+    </td>
+  </tr>
+</table>
+
+<img src="https://streak-stats.demolab.com?user=noor202401938-netizen&hide_border=false&border=44475a&border_radius=13&background=21222c&stroke=44475a&ring=bd93f9&fire=ff79c6&currStreakNum=f8f8f2&sideNums=f8f8f2&currStreakLabel=8be9fd&sideLabels=6272a4&dates=6272a4&excludeDaysLabel=6272a4" width="100%" alt="Contribution streak">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=noor202401938-netizen&bg_color=21222c&color=f8f8f2&title_color=bd93f9&line=bd93f9&point=ff79c6&area=true&area_color=bd93f9&custom_title=CONTRIBUTION%20SIGNAL%20%E2%80%94%20LAST%2031%20DAYS&hide_border=false&border_color=44475a&radius=13" width="100%" alt="Contribution graph">
+
+<br>
+
+<img src="assets/s04-built.svg" width="100%" alt="04 / BUILT">
+
+<!--
+  ── PINNED REPO CARDS (disabled until you fill in real repo names) ───────────
+  Uncomment the block below and replace REPO-NAME-1 / REPO-NAME-2 with actual
+  repository names. The `repo=` value must match the repo name exactly, or the
+  card renders as a broken image. Copy a <td> block to add more.
+
+<table>
+  <tr>
+    <td width="50%">
+      <a href="https://github.com/noor202401938-netizen/REPO-NAME-1">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=noor202401938-netizen&repo=REPO-NAME-1&border_color=44475a&border_radius=13&bg_color=21222c&title_color=ff79c6&icon_color=8be9fd&text_color=f8f8f2" width="100%" alt="Pinned repository">
+      </a>
+    </td>
+    <td width="50%">
+      <a href="https://github.com/noor202401938-netizen/REPO-NAME-2">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=noor202401938-netizen&repo=REPO-NAME-2&border_color=44475a&border_radius=13&bg_color=21222c&title_color=8be9fd&icon_color=bd93f9&text_color=f8f8f2" width="100%" alt="Pinned repository">
+      </a>
+    </td>
+  </tr>
+</table>
+-->
+
+```console
+noor@github ~ $ ls -1 built/
+
+  voice-agent-core/      # telephony + STT + LLM + TTS loop, sub-second turn-taking
+  n8n-sme-workflows/     # reusable automation blueprints for non-technical teams
+  sixtyhours-platform/   # cohort, submissions and mentor tooling
+  retrieval-lab/         # BM25 + FAISS from scratch, no LangChain
+
+noor@github ~ $ # replace the above with your real repos — one line, one truth
 ```
 
----
+<br>
 
-## `01 / SYSTEMS`
+<img src="assets/s05-principles.svg" width="100%" alt="05 / PRINCIPLES">
 
-### 🧠 SixtyHours.tech
-**AI Automation Agency**
+<img src="assets/principles.svg" width="100%" alt="Systems > shortcuts. Always.">
 
-Designing and deploying automation systems for Pakistani businesses across:
+```yaml
+# ~/noor/principles.yml
 
-`E-COMMERCE` · `FOOD DELIVERY` · `LOGISTICS` · `CLINICS`
+build:
+  - "Ship the ugly version that runs. Beauty is a refactor away; usage isn't."
+  - "If it needs me awake to work, it isn't finished."
+  - "Read the source before the tutorial."
 
-**Mission:** remove repetitive operational work, save **5–60 hours/month**, and leave behind systems that are documented, reliable, and easy to hand off.
+teach:
+  - "Write the algorithm before importing it. Once. Then import forever."
+  - "A student who can explain it out loud has actually learned it."
 
----
-
-### ⚡ Autometiq.com
-**B2B Lead Intelligence Platform**
-
-AI-powered sales intelligence for Pakistani SMEs.
-
-```text
-ACCOUNT ENRICHMENT
-        ↓
-ICP-BASED SCORING
-        ↓
-AI REPLY CLASSIFICATION
-        ↓
-PERSONALIZED OUTREACH
-        ↓
-MONTHLY RESCORING
+business:
+  - "Pakistani SMEs don't need AI. They need their Tuesday back."
+  - "Automate the boring thing first — trust is earned on small wins."
 ```
 
-**Current question:** can lead quality become predictable?
+<br>
 
----
+<img src="assets/s06-now.svg" width="100%" alt="06 / NOW">
 
-## `02 / ARSENAL`
+<img src="assets/now.svg" width="100%" alt="Current trajectory: Autometiq → SixtyHours → Pakistan-focused AI infrastructure → content">
 
-### Languages
+- **Autometiq** — voice agents and workflow automation in production for SME clients.
+- **SixtyHours** — running the current cohort across the ML/AI and Software Dev tracks.
+- **PK AI infrastructure** — the longer bet: local-context tooling that doesn't assume a US-shaped business.
+- **Content** — writing up what actually works, so the next person skips a month.
 
-![Python](https://img.shields.io/badge/Python-282A36?style=for-the-badge&logo=python&logoColor=50FA7B)
-![TypeScript](https://img.shields.io/badge/TypeScript-282A36?style=for-the-badge&logo=typescript&logoColor=8BE9FD)
-![JavaScript](https://img.shields.io/badge/JavaScript-282A36?style=for-the-badge&logo=javascript&logoColor=F1FA8C)
-![SQL](https://img.shields.io/badge/SQL-282A36?style=for-the-badge&logo=postgresql&logoColor=8BE9FD)
+<br>
 
-### Frontend
+<img src="assets/profile-card.svg" width="100%" alt="Location: Faisalabad, Pakistan. Status: Building. Focus: AI × SMEs × Automation.">
 
-![Next.js](https://img.shields.io/badge/Next.js-282A36?style=for-the-badge&logo=next.js&logoColor=F8F8F2)
-![React](https://img.shields.io/badge/React-282A36?style=for-the-badge&logo=react&logoColor=8BE9FD)
-![Tailwind](https://img.shields.io/badge/Tailwind-282A36?style=for-the-badge&logo=tailwindcss&logoColor=8BE9FD)
-![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-282A36?style=for-the-badge&logo=shadcnui&logoColor=F8F8F2)
+<p align="center">
+  <a href="https://autometiq.com"><img src="assets/link-autometiq.svg" alt="Autometiq"></a>
+  <a href="https://sixtyhours.tech"><img src="assets/link-sixtyhours.svg" alt="SixtyHours"></a>
+  <a href="mailto:autometiq@gmail.com"><img src="assets/link-email.svg" alt="Email"></a>
+  <!-- swap YOUR-HANDLE below for your LinkedIn slug -->
+  <a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="assets/link-linkedin.svg" alt="LinkedIn"></a>
+</p>
 
-### Backend & Data
-
-![FastAPI](https://img.shields.io/badge/FastAPI-282A36?style=for-the-badge&logo=fastapi&logoColor=50FA7B)
-![Node.js](https://img.shields.io/badge/Node.js-282A36?style=for-the-badge&logo=node.js&logoColor=50FA7B)
-![Supabase](https://img.shields.io/badge/Supabase-282A36?style=for-the-badge&logo=supabase&logoColor=50FA7B)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-282A36?style=for-the-badge&logo=postgresql&logoColor=8BE9FD)
-![Redis](https://img.shields.io/badge/Redis-282A36?style=for-the-badge&logo=redis&logoColor=FF5555)
-
-### AI & Automation
-
-![Claude](https://img.shields.io/badge/Claude_API-282A36?style=for-the-badge&logo=anthropic&logoColor=FFB86C)
-![n8n](https://img.shields.io/badge/n8n-282A36?style=for-the-badge&logo=n8n&logoColor=FF79C6)
-![Twilio](https://img.shields.io/badge/Twilio-282A36?style=for-the-badge&logo=twilio&logoColor=FF5555)
-![Deepgram](https://img.shields.io/badge/Deepgram-282A36?style=for-the-badge&logo=deepgram&logoColor=8BE9FD)
-![ElevenLabs](https://img.shields.io/badge/ElevenLabs-282A36?style=for-the-badge&logoColor=F8F8F2)
-
-### Infrastructure
-
-![Docker](https://img.shields.io/badge/Docker-282A36?style=for-the-badge&logo=docker&logoColor=8BE9FD)
-![Vercel](https://img.shields.io/badge/Vercel-282A36?style=for-the-badge&logo=vercel&logoColor=F8F8F2)
-![Railway](https://img.shields.io/badge/Railway-282A36?style=for-the-badge&logo=railway&logoColor=BD93F9)
-
----
-
-## `03 / GITHUB ACTIVITY`
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=noor202401938-netizen&show_icons=true&theme=dracula&hide_border=true&count_private=true&include_all_commits=true" width="49%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=noor202401938-netizen&layout=compact&theme=dracula&hide_border=true" width="49%" />
-
-<br/>
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=noor202401938-netizen&theme=dracula&hide_border=true" width="70%" />
-
-<br/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=noor202401938-netizen&theme=dracula&hide_border=true&area=true" width="95%" />
-
-</div>
-
----
-
-## `04 / BUILT`
-
-| Project | What it does |
-|---|---|
-| **SEO Audit SaaS** | Python crawler + WordPress REST API + automated ReportLab PDF reports |
-| **Social Automation** | Google Drive → Facebook / Instagram / TikTok via n8n |
-| **Urdu Voice Agent** | Twilio + Deepgram + ElevenLabs |
-| **Forex ML System** | EUR/USD data + walk-forward validation + SHAP analysis |
-| **Pingo** | Social app with Socket.IO, real-time communication, and multiplayer games |
-| **Desktop Cat Companion** | Tauri-based desktop application |
-
----
-
-## `05 / CURRENTLY BUILDING`
-
-```text
-┌─────────────────────────────────────────────────────┐
-│ AUTOMETIQ                                           │
-│ Lead intelligence + AI scoring pipeline             │
-│                                                     │
-│ SIXTYHOURS                                           │
-│ Repeatable automation systems + client playbooks    │
-│                                                     │
-│ PAKISTAN                                             │
-│ AI products built around real operational           │
-│ constraints, not imaginary ones                     │
-└─────────────────────────────────────────────────────┘
-```
-
-### Product & Market
-
-Exploring bottlenecks across:
-
-`E-COMMERCE` · `LOGISTICS` · `CLINICS` · `PAYMENTS` · `CUSTOMER COMMS`
-
-Local constraints such as payment rails, ISP reliability, and fragmented workflows aren't edge cases.
-
-**They're the product requirements.**
-
----
-
-## `06 / PRINCIPLES`
-
-> **Systems > shortcuts. Always.**
-
-- Product-market fit comes from understanding constraints, not collecting features.
-- Automation that cannot be handed off cleanly becomes technical debt.
-- The best software removes complexity from the person using it.
-- Shipping teaches faster than theorizing.
-- Build for the environment that actually exists.
-
----
-
-## `07 / NEXT`
-
-```text
-[01] Scale SixtyHours → 10+ concurrent client projects
-[02] Launch Autometiq → pilot customers
-[03] Validate → lead-quality metrics
-[04] Build → reusable AI automation templates
-[05] Publish → AI / automation engineering content
-[06] Document → building software in South Asia
-```
-
----
-
-## `08 / CONNECT`
-
-<div align="center">
-
-**Faisalabad, Pakistan 🇵🇰**
-
-[![Email](https://img.shields.io/badge/Email-282A36?style=for-the-badge&logo=gmail&logoColor=FF79C6)](mailto:noor.202401938@gcuf.edu.pk)
-[![GitHub](https://img.shields.io/badge/GitHub-282A36?style=for-the-badge&logo=github&logoColor=F8F8F2)](https://github.com/noor202401938-netizen)
-
-<br/>
-
-`Built with purpose. Shipping solutions. Learning fast.`
-
-<br/>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF79C6,50:BD93F9,100:282A36&height=100&section=footer" width="100%"/>
-
-</div>
+<p align="center">
+  <sub><code>Dracula</code> · <code>#282a36</code> — no falling bats, no snake eating the contribution graph.</sub>
+</p>
