@@ -123,6 +123,46 @@ def chip(x, y, text, color, size=12, ph=9, h=26):
             f'fill="{color}">{text}</text></g>', w)
 
 
+def vampire(x, y, s=1.0):
+    """Small engraving-style vampire: caped figure, high collar, blood eyes.
+    Drawn in a 100 x 124 local box, then translated/scaled into place."""
+    g = f'<g transform="translate({x},{y}) scale({s})">'
+
+    # ambient blood haze behind the figure
+    g += f'<ellipse cx="50" cy="66" rx="46" ry="54" fill="{BLOOD_DEEP}" opacity=".14" filter="url(#soft)"/>'
+
+    # cape lining / high collar — the two sweeping points behind the head
+    g += (f'<path d="M37 59 C26 51 19 35 16 11 C26 29 35 45 42 56 Z" fill="{BLOOD_DEEP}"/>'
+          f'<path d="M63 59 C74 51 81 35 84 11 C74 29 65 45 58 56 Z" fill="{BLOOD_DEEP}"/>')
+
+    # cape body, scalloped hem
+    g += (f'<path d="M50 57 C31 57 23 66 19 80 L9 118 Q20 110 30 118 Q40 110 50 118 '
+          f'Q60 110 70 118 Q80 110 91 118 L81 80 C77 66 69 57 50 57 Z" '
+          f'fill="{VOID}" stroke="{BLOOD_DEEP}" stroke-width="1.4" stroke-opacity=".8"/>')
+
+    # shirt front + blood cravat
+    g += f'<path d="M41 56 L50 63 L59 56 L62 84 L38 84 Z" fill="#221d24"/>'
+    g += f'<path d="M50 62 L54.5 70 L50 78 L45.5 70 Z" fill="{BLOOD}"/>'
+
+    # head — pallid, not glowing
+    g += f'<ellipse cx="50" cy="40" rx="13.6" ry="16.4" fill="#ded8ce"/>'
+    # hair with widow's peak
+    g += (f'<path d="M50 22.6 C60 22.6 64.2 30 64.2 40.5 C64.2 33.2 60.4 29.2 56.6 29.2 L50 37.6 '
+          f'L43.4 29.2 C39.6 29.2 35.8 33.2 35.8 40.5 C35.8 30 40 22.6 50 22.6 Z" fill="{VOID}"/>')
+    # sunken brow — this is what makes him sinister rather than cute
+    g += (f'<path d="M41.6 37.8 L47.4 40.2 L47 41.5 L41.4 39.3 Z" fill="{VOID}" opacity=".55"/>'
+          f'<path d="M58.4 37.8 L52.6 40.2 L53 41.5 L58.6 39.3 Z" fill="{VOID}" opacity=".55"/>')
+    # eyes
+    g += (f'<circle cx="44.6" cy="43.2" r="1.6" fill="{BLOOD}"/>'
+          f'<circle cx="55.4" cy="43.2" r="1.6" fill="{BLOOD}"/>')
+    # grim mouth + fangs
+    g += (f'<path d="M45.4 50 Q50 51.4 54.6 50" fill="none" stroke="{VOID}" stroke-width="1.1" '
+          f'stroke-linecap="round" opacity=".8"/>')
+    g += (f'<path d="M47.1 50.6 L48.6 50.7 L47.9 55.2 Z" fill="#f2eee7"/>'
+          f'<path d="M51.4 50.7 L52.9 50.6 L52.1 55.2 Z" fill="#f2eee7"/>')
+    return g + "</g>"
+
+
 def chiprow(x, y, items, colors, size=12, gap=9):
     out, cx = "", x
     for i, it in enumerate(items):
@@ -167,6 +207,9 @@ def hero():
     # links
     lk, _ = chiprow(x, 232, ["SixtyHours.tech", "Autometiq.com"], [BLOOD, VERDIGRIS], size=12.5)
     b += lk
+
+    # the resident vampire — sits in the gap between the text block and the status rail
+    b += vampire(472, 86, 0.92)
 
     # status column (right)
     b += f'<line x1="596" y1="62" x2="596" y2="{h-30}" stroke="{LINE}" stroke-width="1" opacity=".7"/>'

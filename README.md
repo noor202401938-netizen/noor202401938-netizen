@@ -19,22 +19,22 @@
 ═══════════════════════════════════════════════════════════════════════════════
 -->
 
-<img src="assets/hero.svg" width="100%" alt="Noor Fatima — Software Engineer · Founder · Builder. Building AI-first systems for Pakistani SMEs.">
+<img src="assets/hero.svg?v=3" width="100%" alt="Noor Fatima — Software Engineer · Founder · Builder. Building AI-first systems for Pakistani SMEs.">
 
 <br>
 
-<img src="assets/s01-systems.svg" width="100%" alt="01 / SYSTEMS">
+<img src="assets/s01-systems.svg?v=3" width="100%" alt="01 / SYSTEMS">
 
 <table>
   <tr>
     <td width="50%" valign="top">
       <a href="https://sixtyhours.tech">
-        <img src="assets/card-sixtyhours.svg" width="100%" alt="SixtyHours — engineering talent, built from scratch">
+        <img src="assets/card-sixtyhours.svg?v=3" width="100%" alt="SixtyHours — engineering talent, built from scratch">
       </a>
     </td>
     <td width="50%" valign="top">
       <a href="https://autometiq.com">
-        <img src="assets/card-autometiq.svg" width="100%" alt="Autometiq — AI operations for Pakistani SMEs">
+        <img src="assets/card-autometiq.svg?v=3" width="100%" alt="Autometiq — AI operations for Pakistani SMEs">
       </a>
     </td>
   </tr>
@@ -42,13 +42,13 @@
 
 <br>
 
-<img src="assets/s02-arsenal.svg" width="100%" alt="02 / ARSENAL">
+<img src="assets/s02-arsenal.svg?v=3" width="100%" alt="02 / ARSENAL">
 
-<img src="assets/arsenal.svg" width="100%" alt="Languages: Python, TypeScript, JavaScript, SQL. AI/Automation: Claude, n8n, Twilio, Deepgram, ElevenLabs. Backend: FastAPI, Fastify, Supabase, PostgreSQL, Redis. Frontend: Next.js, React, Tailwind, shadcn/ui. Infra: Docker, Vercel, Railway, GitHub Actions.">
+<img src="assets/arsenal.svg?v=3" width="100%" alt="Languages: Python, TypeScript, JavaScript, SQL. AI/Automation: Claude, n8n, Twilio, Deepgram, ElevenLabs. Backend: FastAPI, Fastify, Supabase, PostgreSQL, Redis. Frontend: Next.js, React, Tailwind, shadcn/ui. Infra: Docker, Vercel, Railway, GitHub Actions.">
 
 <br>
 
-<img src="assets/s03-activity.svg" width="100%" alt="03 / ACTIVITY">
+<img src="assets/s03-activity.svg?v=3" width="100%" alt="03 / ACTIVITY">
 
 <table>
   <tr>
@@ -67,7 +67,7 @@
 
 <br>
 
-<img src="assets/s04-built.svg" width="100%" alt="04 / BUILT">
+<img src="assets/s04-built.svg?v=3" width="100%" alt="04 / BUILT">
 
 <!--
   ── PINNED REPO CARDS (disabled until you fill in real repo names) ───────────
@@ -104,9 +104,9 @@ noor@github ~ $ # replace the above with your real repos — one line, one truth
 
 <br>
 
-<img src="assets/s05-principles.svg" width="100%" alt="05 / PRINCIPLES">
+<img src="assets/s05-principles.svg?v=3" width="100%" alt="05 / PRINCIPLES">
 
-<img src="assets/principles.svg" width="100%" alt="Systems > shortcuts. Always.">
+<img src="assets/principles.svg?v=3" width="100%" alt="Systems > shortcuts. Always.">
 
 ```yaml
 # ~/noor/principles.yml
@@ -127,9 +127,9 @@ business:
 
 <br>
 
-<img src="assets/s06-now.svg" width="100%" alt="06 / NOW">
+<img src="assets/s06-now.svg?v=3" width="100%" alt="06 / NOW">
 
-<img src="assets/now.svg" width="100%" alt="Current trajectory: Autometiq → SixtyHours → Pakistan-focused AI infrastructure → content">
+<img src="assets/now.svg?v=3" width="100%" alt="Current trajectory: Autometiq → SixtyHours → Pakistan-focused AI infrastructure → content">
 
 - **Autometiq** — voice agents and workflow automation in production for SME clients.
 - **SixtyHours** — running the current cohort across the ML/AI and Software Dev tracks.
@@ -138,14 +138,14 @@ business:
 
 <br>
 
-<img src="assets/profile-card.svg" width="100%" alt="Location: Faisalabad, Pakistan. Status: Building. Focus: AI × SMEs × Automation.">
+<img src="assets/profile-card.svg?v=3" width="100%" alt="Location: Faisalabad, Pakistan. Status: Building. Focus: AI × SMEs × Automation.">
 
 <p align="center">
-  <a href="https://autometiq.com"><img src="assets/link-autometiq.svg" alt="Autometiq"></a>
-  <a href="https://sixtyhours.tech"><img src="assets/link-sixtyhours.svg" alt="SixtyHours"></a>
-  <a href="mailto:autometiq@gmail.com"><img src="assets/link-email.svg" alt="Email"></a>
+  <a href="https://autometiq.com"><img src="assets/link-autometiq.svg?v=3" alt="Autometiq"></a>
+  <a href="https://sixtyhours.tech"><img src="assets/link-sixtyhours.svg?v=3" alt="SixtyHours"></a>
+  <a href="mailto:autometiq@gmail.com"><img src="assets/link-email.svg?v=3" alt="Email"></a>
   <!-- swap YOUR-HANDLE below for your LinkedIn slug -->
-  <a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="assets/link-linkedin.svg" alt="LinkedIn"></a>
+  <a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="assets/link-linkedin.svg?v=3" alt="LinkedIn"></a>
 </p>
 
 <p align="center">
