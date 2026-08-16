@@ -1,8 +1,11 @@
 <!--
 ═══════════════════════════════════════════════════════════════════════════════
   NOOR FATIMA — GITHUB PROFILE README
-  Dracula palette · #282a36 #44475a #f8f8f2 #6272a4 #8be9fd #50fa7b #ffb86c
-                     #ff79c6 #bd93f9 #ff5555 #f1fa8c
+  CRYPT palette (gothic — blood & bone)
+    void #0b0b0e · sepulchre #0e0e13 · crypt #14141a · mortar #332a35
+    bone #e8e3d9 · ash #7f7480
+    blood #d94a5f · blood-deep #9b1b30 · candle #c9a227 · tallow #d9b64a
+    nightshade #a487bd · verdigris #6faa96 · moss #93ae72
 
   SETUP
   1. Create a repo named exactly: noor202401938-netizen
@@ -50,17 +53,17 @@
 <table>
   <tr>
     <td width="58%">
-      <img src="https://github-readme-stats.vercel.app/api?username=noor202401938-netizen&show_icons=true&include_all_commits=true&count_private=true&hide_title=true&hide_rank=false&border_color=44475a&border_radius=13&bg_color=21222c&title_color=bd93f9&icon_color=8be9fd&text_color=f8f8f2&ring_color=ff79c6" width="100%" alt="GitHub stats">
+      <img src="https://github-readme-stats.vercel.app/api?username=noor202401938-netizen&show_icons=true&include_all_commits=true&count_private=true&hide_title=true&hide_rank=false&border_color=332a35&border_radius=13&bg_color=14141a&title_color=d94a5f&icon_color=c9a227&text_color=e8e3d9&ring_color=d94a5f" width="100%" alt="GitHub stats">
     </td>
     <td width="42%">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=noor202401938-netizen&layout=compact&langs_count=8&hide_title=true&border_color=44475a&border_radius=13&bg_color=21222c&title_color=bd93f9&text_color=f8f8f2" width="100%" alt="Most used languages">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=noor202401938-netizen&layout=compact&langs_count=8&hide_title=true&border_color=332a35&border_radius=13&bg_color=14141a&title_color=d94a5f&text_color=e8e3d9" width="100%" alt="Most used languages">
     </td>
   </tr>
 </table>
 
-<img src="https://streak-stats.demolab.com?user=noor202401938-netizen&hide_border=false&border=44475a&border_radius=13&background=21222c&stroke=44475a&ring=bd93f9&fire=ff79c6&currStreakNum=f8f8f2&sideNums=f8f8f2&currStreakLabel=8be9fd&sideLabels=6272a4&dates=6272a4&excludeDaysLabel=6272a4" width="100%" alt="Contribution streak">
+<img src="https://streak-stats.demolab.com?user=noor202401938-netizen&hide_border=false&border=332a35&border_radius=13&background=14141a&stroke=332a35&ring=d94a5f&fire=c9a227&currStreakNum=e8e3d9&sideNums=e8e3d9&currStreakLabel=d94a5f&sideLabels=7f7480&dates=7f7480&excludeDaysLabel=7f7480" width="100%" alt="Contribution streak">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=noor202401938-netizen&bg_color=21222c&color=f8f8f2&title_color=bd93f9&line=bd93f9&point=ff79c6&area=true&area_color=bd93f9&custom_title=CONTRIBUTION%20SIGNAL%20%E2%80%94%20LAST%2031%20DAYS&hide_border=false&border_color=44475a&radius=13" width="100%" alt="Contribution graph">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=noor202401938-netizen&bg_color=14141a&color=e8e3d9&title_color=d94a5f&line=d94a5f&point=c9a227&area=true&area_color=9b1b30&custom_title=CONTRIBUTION%20SIGNAL%20%E2%80%94%20LAST%2031%20DAYS&hide_border=false&border_color=332a35&radius=13" width="100%" alt="Contribution graph">
 
 <br>
 
@@ -76,12 +79,12 @@
   <tr>
     <td width="50%">
       <a href="https://github.com/noor202401938-netizen/REPO-NAME-1">
-        <img src="https://github-readme-stats.vercel.app/api/pin/?username=noor202401938-netizen&repo=REPO-NAME-1&border_color=44475a&border_radius=13&bg_color=21222c&title_color=ff79c6&icon_color=8be9fd&text_color=f8f8f2" width="100%" alt="Pinned repository">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=noor202401938-netizen&repo=REPO-NAME-1&border_color=332a35&border_radius=13&bg_color=14141a&title_color=d94a5f&icon_color=c9a227&text_color=e8e3d9" width="100%" alt="Pinned repository">
       </a>
     </td>
     <td width="50%">
       <a href="https://github.com/noor202401938-netizen/REPO-NAME-2">
-        <img src="https://github-readme-stats.vercel.app/api/pin/?username=noor202401938-netizen&repo=REPO-NAME-2&border_color=44475a&border_radius=13&bg_color=21222c&title_color=8be9fd&icon_color=bd93f9&text_color=f8f8f2" width="100%" alt="Pinned repository">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=noor202401938-netizen&repo=REPO-NAME-2&border_color=332a35&border_radius=13&bg_color=14141a&title_color=6faa96&icon_color=c9a227&text_color=e8e3d9" width="100%" alt="Pinned repository">
       </a>
     </td>
   </tr>
@@ -146,5 +149,5 @@ business:
 </p>
 
 <p align="center">
-  <sub><code>Dracula</code> · <code>#282a36</code> — no falling bats, no snake eating the contribution graph.</sub>
+  <sub><code>CRYPT</code> · <code>#14141a</code> — no falling bats, no snake eating the contribution graph.</sub>
 </p>

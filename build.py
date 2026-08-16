@@ -5,20 +5,38 @@ import os
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
 os.makedirs(OUT, exist_ok=True)
 
-# ── Dracula palette ────────────────────────────────────────────────────────────
-BG      = "#282a36"
-DEEP    = "#1e1f29"
-PANEL   = "#21222c"
-LINE    = "#44475a"
-FG      = "#f8f8f2"
-CMT     = "#6272a4"
-CYAN    = "#8be9fd"
-GREEN   = "#50fa7b"
-ORANGE  = "#ffb86c"
-PINK    = "#ff79c6"
-PURPLE  = "#bd93f9"
-RED     = "#ff5555"
-YELLOW  = "#f1fa8c"
+# ── CRYPT palette — gothic (blood & bone) ─────────────────────────────────────
+# Swap this block to retheme everything. Contrast of every text-bearing accent
+# against CRYPT (#14141a) is >= 4.2:1, so chips and labels stay readable.
+VOID       = "#0b0b0e"   # outermost stone
+SEPULCHRE  = "#0e0e13"   # title bars — deeper than the panel
+CRYPT      = "#14141a"   # panel fill
+MORTAR     = "#332a35"   # borders, rules, grid
+BONE       = "#e8e3d9"   # primary text
+ASH        = "#7f7480"   # comments, secondary text
+
+BLOOD      = "#d94a5f"   # primary accent  — text-safe crimson
+BLOOD_DEEP = "#9b1b30"   # fills, glows, the red title-bar light
+CANDLE     = "#c9a227"   # gold highlight
+TALLOW     = "#d9b64a"   # pale gold
+NIGHTSHADE = "#a487bd"   # muted violet
+VERDIGRIS  = "#6faa96"   # aged copper
+MOSS       = "#93ae72"   # grave moss
+
+# ── role aliases (the drawing code below speaks in these) ─────────────────────
+BG      = VOID
+DEEP    = SEPULCHRE
+PANEL   = CRYPT
+LINE    = MORTAR
+FG      = BONE
+CMT     = ASH
+CYAN    = VERDIGRIS
+GREEN   = MOSS
+ORANGE  = CANDLE
+PINK    = BLOOD
+PURPLE  = NIGHTSHADE
+RED     = BLOOD_DEEP
+YELLOW  = TALLOW
 
 MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,Liberation Mono,monospace"
 
@@ -36,18 +54,18 @@ def defs(extra=""):
     <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
       <path d="M26 0H0V26" fill="none" stroke="{LINE}" stroke-width="1" opacity=".22"/>
     </pattern>
-    <radialGradient id="glowA" cx="12%" cy="0%" r="65%">
-      <stop offset="0%" stop-color="{PURPLE}" stop-opacity=".20"/>
-      <stop offset="100%" stop-color="{PURPLE}" stop-opacity="0"/>
+    <radialGradient id="glowA" cx="10%" cy="0%" r="68%">
+      <stop offset="0%" stop-color="{BLOOD_DEEP}" stop-opacity=".24"/>
+      <stop offset="100%" stop-color="{BLOOD_DEEP}" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glowB" cx="92%" cy="100%" r="60%">
-      <stop offset="0%" stop-color="{CYAN}" stop-opacity=".13"/>
-      <stop offset="100%" stop-color="{CYAN}" stop-opacity="0"/>
+    <radialGradient id="glowB" cx="94%" cy="100%" r="62%">
+      <stop offset="0%" stop-color="{CANDLE}" stop-opacity=".11"/>
+      <stop offset="100%" stop-color="{CANDLE}" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="{PURPLE}" stop-opacity=".85"/>
-      <stop offset="55%" stop-color="{PINK}" stop-opacity=".35"/>
-      <stop offset="100%" stop-color="{CYAN}" stop-opacity="0"/>
+      <stop offset="0%" stop-color="{BLOOD}" stop-opacity=".9"/>
+      <stop offset="50%" stop-color="{NIGHTSHADE}" stop-opacity=".3"/>
+      <stop offset="100%" stop-color="{CANDLE}" stop-opacity="0"/>
     </linearGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="7" result="b"/>
@@ -128,12 +146,12 @@ def hero():
 
     # name
     b += (f'<text x="{x}" y="146" font-family="{MONO}" font-size="46" font-weight="700" '
-          f'letter-spacing="2" fill="{PURPLE}" opacity=".30" filter="url(#soft)">NOOR FATIMA</text>')
+          f'letter-spacing="2" fill="{BLOOD}" opacity=".34" filter="url(#soft)">NOOR FATIMA</text>')
     b += (f'<text x="{x}" y="146" font-family="{MONO}" font-size="46" font-weight="700" '
           f'letter-spacing="2" fill="{FG}">NOOR FATIMA</text>')
 
     # role line
-    roles = [("SOFTWARE ENGINEER", PURPLE), ("FOUNDER", PINK), ("BUILDER", CYAN)]
+    roles = [("SOFTWARE ENGINEER", BLOOD), ("FOUNDER", CANDLE), ("BUILDER", NIGHTSHADE)]
     cx = x
     for i, (t, c) in enumerate(roles):
         b += (f'<text x="{cx:.1f}" y="176" font-family="{MONO}" font-size="13" letter-spacing="2.4" '
@@ -147,14 +165,14 @@ def hero():
           f'Building AI-first systems for Pakistani SMEs.</text>')
 
     # links
-    lk, _ = chiprow(x, 232, ["SixtyHours.tech", "Autometiq.com"], [PINK, CYAN], size=12.5)
+    lk, _ = chiprow(x, 232, ["SixtyHours.tech", "Autometiq.com"], [BLOOD, VERDIGRIS], size=12.5)
     b += lk
 
     # status column (right)
     b += f'<line x1="596" y1="62" x2="596" y2="{h-30}" stroke="{LINE}" stroke-width="1" opacity=".7"/>'
     b += (f'<text x="628" y="86" font-family="{MONO}" font-size="11" letter-spacing="2.2" '
           f'fill="{CMT}">&#8250; STATUS</text>')
-    for i, (t, c) in enumerate([("BUILDING", GREEN), ("SHIPPING", PINK), ("LEARNING", CYAN)]):
+    for i, (t, c) in enumerate([("BUILDING", MOSS), ("SHIPPING", BLOOD), ("LEARNING", VERDIGRIS)]):
         yy = 118 + i * 30
         b += f'<circle cx="633" cy="{yy-4}" r="4.2" fill="{c}" filter="url(#dot)"/>'
         b += (f'<text x="650" y="{yy}" font-family="{MONO}" font-size="13" letter-spacing="1.6" '
@@ -265,13 +283,13 @@ def arsenal():
 def principles():
     h = 166
     b = frame(W, h)
-    b += f'<path d="M1 15 A14 14 0 0 1 15 1 H6 V{h-1} H15 A14 14 0 0 1 1 {h-15} Z" fill="{PURPLE}" opacity=".9"/>'
-    b += f'<rect x="5" y="1" width="2" height="{h-2}" fill="{PURPLE}" opacity=".9"/>'
+    b += f'<path d="M1 15 A14 14 0 0 1 15 1 H6 V{h-1} H15 A14 14 0 0 1 1 {h-15} Z" fill="{BLOOD}" opacity=".95"/>'
+    b += f'<rect x="5" y="1" width="2" height="{h-2}" fill="{BLOOD}" opacity=".95"/>'
     b += (f'<text x="46" y="54" font-family="{MONO}" font-size="11.5" letter-spacing="2.4" '
           f'fill="{CMT}">// CORE AXIOM</text>')
     q = "Systems &#62; shortcuts. Always."
     b += (f'<text x="46" y="106" font-family="{MONO}" font-size="33" font-weight="700" '
-          f'letter-spacing="0.5" fill="{PURPLE}" opacity=".35" filter="url(#soft)">{q}</text>')
+          f'letter-spacing="0.5" fill="{CANDLE}" opacity=".28" filter="url(#soft)">{q}</text>')
     b += (f'<text x="46" y="106" font-family="{MONO}" font-size="33" font-weight="700" '
           f'letter-spacing="0.5" fill="{FG}">{q}</text>')
     b += (f'<text x="46" y="136" font-family="{MONO}" font-size="12" fill="{CMT}">'
@@ -285,10 +303,10 @@ def principles():
 def now():
     h = 138
     nodes = [
-        ("AUTOMETIQ",  "revenue engine",   PINK),
-        ("SIXTYHOURS", "talent pipeline",  PURPLE),
-        ("PK AI INFRA","the long game",    CYAN),
-        ("CONTENT",    "compounding",      GREEN),
+        ("AUTOMETIQ",  "revenue engine",   BLOOD),
+        ("SIXTYHOURS", "talent pipeline",  CANDLE),
+        ("PK AI INFRA","the long game",    NIGHTSHADE),
+        ("CONTENT",    "compounding",      VERDIGRIS),
     ]
     b = frame(W, h)
     b += (f'<text x="32" y="36" font-family="{MONO}" font-size="11" letter-spacing="2.2" '
@@ -321,9 +339,9 @@ def profilecard():
 
     rows = [
         ("LOCATION", "Faisalabad, Pakistan", FG),
-        ("STATUS",   "Building",             GREEN),
-        ("FOCUS",    "AI  ×  SMEs  ×  Automation", CYAN),
-        ("OPEN TO",  "Collaborations  ·  Consulting  ·  Speaking", PINK),
+        ("STATUS",   "Building",             MOSS),
+        ("FOCUS",    "AI  ×  SMEs  ×  Automation", VERDIGRIS),
+        ("OPEN TO",  "Collaborations  ·  Consulting  ·  Speaking", BLOOD),
     ]
     for i, (k, v, c) in enumerate(rows):
         y = 76 + i * 30
@@ -386,8 +404,8 @@ if __name__ == "__main__":
     now()
     profilecard()
 
-    linkbtn("link-autometiq.svg",  "AUTOMETIQ",  CYAN)
-    linkbtn("link-sixtyhours.svg", "SIXTYHOURS", PINK)
-    linkbtn("link-email.svg",      "EMAIL",      PURPLE)
-    linkbtn("link-linkedin.svg",   "LINKEDIN",   GREEN)
+    linkbtn("link-autometiq.svg",  "AUTOMETIQ",  VERDIGRIS)
+    linkbtn("link-sixtyhours.svg", "SIXTYHOURS", BLOOD)
+    linkbtn("link-email.svg",      "EMAIL",      CANDLE)
+    linkbtn("link-linkedin.svg",   "LINKEDIN",   NIGHTSHADE)
     print("\ndone.")
