@@ -238,18 +238,20 @@ def hero():
 # ══════════════════════════════════════════════════════════════════════════════
 def section(num, title, note, accent, fname):
     h = 58
-    b = ""
+    # These carry their own dark ground — without it the bone text is invisible
+    # on GitHub's LIGHT theme, which is the one place a transparent SVG breaks.
+    b = frame(W, h, r=11)
     # number badge
-    b += (f'<rect x="1" y="12" width="52" height="34" rx="8" fill="{accent}" fill-opacity=".12" '
+    b += (f'<rect x="14" y="12" width="52" height="34" rx="8" fill="{accent}" fill-opacity=".14" '
           f'stroke="{accent}" stroke-opacity=".45" stroke-width="1.2"/>')
-    b += (f'<text x="27" y="34.5" text-anchor="middle" font-family="{MONO}" font-size="14" '
+    b += (f'<text x="40" y="34.5" text-anchor="middle" font-family="{MONO}" font-size="14" '
           f'font-weight="700" letter-spacing="1" fill="{accent}">{num}</text>')
-    b += (f'<text x="68" y="35" font-family="{MONO}" font-size="17" font-weight="700" '
+    b += (f'<text x="82" y="35" font-family="{MONO}" font-size="17" font-weight="700" '
           f'letter-spacing="3.2" fill="{FG}">{title}</text>')
 
-    tx = 68 + tw(title, 17) + 3.2 * len(title) + 22
-    b += f'<rect x="{tx:.0f}" y="28.5" width="{W-tx-160:.0f}" height="1.6" rx="1" fill="url(#rule)"/>'
-    b += (f'<text x="{W-1}" y="34" text-anchor="end" font-family="{MONO}" font-size="12" '
+    tx = 82 + tw(title, 17) + 3.2 * len(title) + 22
+    b += f'<rect x="{tx:.0f}" y="28.5" width="{W-tx-175:.0f}" height="1.6" rx="1" fill="url(#rule)"/>'
+    b += (f'<text x="{W-18}" y="34" text-anchor="end" font-family="{MONO}" font-size="12" '
           f'fill="{CMT}">// {note}</text>')
     write(fname, svg(W, h, b))
 
@@ -398,6 +400,65 @@ def profilecard():
 
 
 # ══════════════════════════════════════════════════════════════════════════════
+# 7b. CODE PANELS
+# GitHub styles ``` fenced blocks with its own syntax theme, which fights the
+# palette. These render the same content as SVG so the whole page is one surface.
+# ══════════════════════════════════════════════════════════════════════════════
+def esc(s):
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def codepanel(fname, title, lines, fs=12.5, pad=26, lh=20):
+    """lines: list of [(text, colour), ...] segment lists. [] renders a blank line."""
+    h = 36 + pad + len(lines) * lh + pad - 6
+    b = frame(W, h)
+    b += titlebar(W, title)
+    for i, segs in enumerate(lines):
+        y = 36 + pad + fs + i * lh
+        x = 32.0
+        for text, col in segs:
+            if text.strip():
+                b += (f'<text x="{x:.1f}" y="{y:.1f}" xml:space="preserve" font-family="{MONO}" '
+                      f'font-size="{fs}" fill="{col}">{esc(text)}</text>')
+            x += len(text) * fs * ADV
+    write(fname, svg(W, h, b))
+
+
+def built_console():
+    P = [("noor@github", MOSS), (" ~ ", ASH), ("$", BLOOD)]
+    entries = [
+        ("voice-agent-core/",    "telephony + STT + LLM + TTS loop, sub-second turn-taking"),
+        ("n8n-sme-workflows/",   "reusable automation blueprints for non-technical teams"),
+        ("sixtyhours-platform/", "cohort, submissions and mentor tooling"),
+        ("retrieval-lab/",       "BM25 + FAISS from scratch, no LangChain"),
+    ]
+    lines = [P + [(" ls -1 built/", BONE)], []]
+    for name, note in entries:
+        lines.append([("  " + name.ljust(23), CANDLE), ("# " + note, ASH)])
+    lines += [[], P + [("  # replace these with your real repos — one line, one truth", ASH)]]
+    codepanel("built-console.svg", "~/noor — ls -1 built/", lines)
+
+
+def principles_yml():
+    def kv(s):
+        return [("  - ", BLOOD), (f'"{s}"', BONE)]
+    lines = [
+        [("# ~/noor/principles.yml", ASH)], [],
+        [("build:", BLOOD)],
+        kv("Ship the ugly version that runs. Beauty is a refactor away; usage isn't."),
+        kv("If it needs me awake to work, it isn't finished."),
+        kv("Read the source before the tutorial."), [],
+        [("teach:", CANDLE)],
+        kv("Write the algorithm before importing it. Once. Then import forever."),
+        kv("A student who can explain it out loud has actually learned it."), [],
+        [("business:", VERDIGRIS)],
+        kv("Pakistani SMEs don't need AI. They need their Tuesday back."),
+        kv("Automate the boring thing first — trust is earned on small wins."),
+    ]
+    codepanel("principles-yml.svg", "~/noor — cat principles.yml", lines)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
 # 8. FOOTER LINK BUTTONS
 # ══════════════════════════════════════════════════════════════════════════════
 def linkbtn(fname, label, color):
@@ -446,6 +507,8 @@ if __name__ == "__main__":
     principles()
     now()
     profilecard()
+    built_console()
+    principles_yml()
 
     linkbtn("link-autometiq.svg",  "AUTOMETIQ",  VERDIGRIS)
     linkbtn("link-sixtyhours.svg", "SIXTYHOURS", BLOOD)
