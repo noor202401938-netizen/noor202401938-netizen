@@ -1,59 +1,36 @@
 <!--
 ═══════════════════════════════════════════════════════════════════════════════
   NOOR FATIMA — GITHUB PROFILE README
+
+  LAYOUT: one-slab. The whole profile is two tall SVGs rather than a stack of
+  separate cards, so it reads as a single designed page. Edit build.py and
+  re-run `python3 build.py` to regenerate — never hand-edit the SVGs.
+
+    slab-a.svg   hero · 01 SYSTEMS · 02 ARSENAL · 03 ACTIVITY label
+    (live stat widgets sit between the slabs — external, can't be inlined)
+    slab-b.svg   04 BUILT · 05 PRINCIPLES · 06 NOW · profile.json
+    link-*.svg   footer buttons, separate only so the links stay clickable
+
   CRYPT palette (gothic — blood & bone)
     void #0b0b0e · sepulchre #0e0e13 · crypt #14141a · mortar #332a35
     bone #e8e3d9 · ash #7f7480
     blood #d94a5f · blood-deep #9b1b30 · candle #c9a227 · tallow #d9b64a
     nightshade #a487bd · verdigris #6faa96 · moss #93ae72
 
-  SETUP
-  1. Create a repo named exactly: noor202401938-netizen
-  2. Drop this README.md at the repo root.
-  3. Drop the whole assets/ folder next to it.
-  4. Commit. GitHub renders it on your profile automatically.
+  The ?v=N query on each asset is a cache-buster. GitHub's image proxy caches
+  by URL, so BUMP N whenever you change an SVG or the old one keeps showing.
 
-  All SVGs are hand-built and self-contained — no external generators,
-  no web fonts, no scripts. They render identically in GitHub's light
-  and dark themes because they carry their own background.
+  Every SVG carries its own dark background, so the page looks identical in
+  GitHub's light and dark themes.
 ═══════════════════════════════════════════════════════════════════════════════
 -->
 
-<img src="assets/hero.svg?v=4" width="100%" alt="Noor Fatima — Software Engineer · Founder · Builder. Building AI-first systems for Pakistani SMEs.">
-
-<br>
-
-<img src="assets/s01-systems.svg?v=4" width="100%" alt="01 / SYSTEMS">
-
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <a href="https://sixtyhours.tech">
-        <img src="assets/card-sixtyhours.svg?v=4" width="100%" alt="SixtyHours — engineering talent, built from scratch">
-      </a>
-    </td>
-    <td width="50%" valign="top">
-      <a href="https://autometiq.com">
-        <img src="assets/card-autometiq.svg?v=4" width="100%" alt="Autometiq — AI operations for Pakistani SMEs">
-      </a>
-    </td>
-  </tr>
-</table>
-
-<br>
-
-<img src="assets/s02-arsenal.svg?v=4" width="100%" alt="02 / ARSENAL">
-
-<img src="assets/arsenal.svg?v=4" width="100%" alt="Languages: Python, TypeScript, JavaScript, SQL. AI/Automation: Claude, n8n, Twilio, Deepgram, ElevenLabs. Backend: FastAPI, Fastify, Supabase, PostgreSQL, Redis. Frontend: Next.js, React, Tailwind, shadcn/ui. Infra: Docker, Vercel, Railway, GitHub Actions.">
-
-<br>
-
-<img src="assets/s03-activity.svg?v=4" width="100%" alt="03 / ACTIVITY">
+<img src="assets/slab-a.svg?v=5" width="100%" alt="Noor Fatima — Software Engineer, Founder, Builder. Building AI-first systems for Pakistani SMEs. 01 SYSTEMS: SixtyHours and Autometiq. 02 ARSENAL: Python, TypeScript, JavaScript, SQL; Claude, n8n, Twilio, Deepgram, ElevenLabs; FastAPI, Fastify, Supabase, PostgreSQL, Redis; Next.js, React, Tailwind, shadcn/ui; Docker, Vercel, Railway, GitHub Actions.">
 
 <table>
   <tr>
     <td width="58%">
-      <img src="https://github-readme-stats.vercel.app/api?username=noor202401938-netizen&show_icons=true&include_all_commits=true&count_private=true&hide_title=true&hide_rank=false&border_color=332a35&border_radius=13&bg_color=14141a&title_color=d94a5f&icon_color=c9a227&text_color=e8e3d9&ring_color=d94a5f" width="100%" alt="GitHub stats">
+      <img src="https://github-readme-stats.vercel.app/api?username=noor202401938-netizen&show_icons=true&include_all_commits=true&count_private=true&hide_title=true&border_color=332a35&border_radius=13&bg_color=14141a&title_color=d94a5f&icon_color=c9a227&text_color=e8e3d9&ring_color=d94a5f" width="100%" alt="GitHub stats">
     </td>
     <td width="42%">
       <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=noor202401938-netizen&layout=compact&langs_count=8&hide_title=true&border_color=332a35&border_radius=13&bg_color=14141a&title_color=d94a5f&text_color=e8e3d9" width="100%" alt="Most used languages">
@@ -65,63 +42,14 @@
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=noor202401938-netizen&bg_color=14141a&color=e8e3d9&title_color=d94a5f&line=d94a5f&point=c9a227&area=true&area_color=9b1b30&custom_title=CONTRIBUTION%20SIGNAL%20%E2%80%94%20LAST%2031%20DAYS&hide_border=false&border_color=332a35&radius=13" width="100%" alt="Contribution graph">
 
-<br>
-
-<img src="assets/s04-built.svg?v=4" width="100%" alt="04 / BUILT">
-
-<!--
-  ── PINNED REPO CARDS (disabled until you fill in real repo names) ───────────
-  Uncomment the block below and replace REPO-NAME-1 / REPO-NAME-2 with actual
-  repository names. The `repo=` value must match the repo name exactly, or the
-  card renders as a broken image. Copy a <td> block to add more.
-
-<table>
-  <tr>
-    <td width="50%">
-      <a href="https://github.com/noor202401938-netizen/REPO-NAME-1">
-        <img src="https://github-readme-stats.vercel.app/api/pin/?username=noor202401938-netizen&repo=REPO-NAME-1&border_color=332a35&border_radius=13&bg_color=14141a&title_color=d94a5f&icon_color=c9a227&text_color=e8e3d9" width="100%" alt="Pinned repository">
-      </a>
-    </td>
-    <td width="50%">
-      <a href="https://github.com/noor202401938-netizen/REPO-NAME-2">
-        <img src="https://github-readme-stats.vercel.app/api/pin/?username=noor202401938-netizen&repo=REPO-NAME-2&border_color=332a35&border_radius=13&bg_color=14141a&title_color=6faa96&icon_color=c9a227&text_color=e8e3d9" width="100%" alt="Pinned repository">
-      </a>
-    </td>
-  </tr>
-</table>
--->
-
-<img src="assets/built-console.svg?v=4" width="100%" alt="ls -1 built/ — voice-agent-core, n8n-sme-workflows, sixtyhours-platform, retrieval-lab">
-
-<br>
-
-<img src="assets/s05-principles.svg?v=4" width="100%" alt="05 / PRINCIPLES">
-
-<img src="assets/principles.svg?v=4" width="100%" alt="Systems > shortcuts. Always.">
-
-<img src="assets/principles-yml.svg?v=4" width="100%" alt="principles.yml — build, teach and business principles">
-
-<br>
-
-<img src="assets/s06-now.svg?v=4" width="100%" alt="06 / NOW">
-
-<img src="assets/now.svg?v=4" width="100%" alt="Current trajectory: Autometiq → SixtyHours → Pakistan-focused AI infrastructure → content">
-
-- **Autometiq** — voice agents and workflow automation in production for SME clients.
-- **SixtyHours** — running the current cohort across the ML/AI and Software Dev tracks.
-- **PK AI infrastructure** — the longer bet: local-context tooling that doesn't assume a US-shaped business.
-- **Content** — writing up what actually works, so the next person skips a month.
-
-<br>
-
-<img src="assets/profile-card.svg?v=4" width="100%" alt="Location: Faisalabad, Pakistan. Status: Building. Focus: AI × SMEs × Automation.">
+<img src="assets/slab-b.svg?v=5" width="100%" alt="04 BUILT: voice-agent-core, n8n-sme-workflows, sixtyhours-platform, retrieval-lab. 05 PRINCIPLES: Systems > shortcuts. Always. 06 NOW: Autometiq, SixtyHours, Pakistan-focused AI infrastructure, content. Faisalabad, Pakistan — open to collaborations, consulting and speaking.">
 
 <p align="center">
-  <a href="https://autometiq.com"><img src="assets/link-autometiq.svg?v=4" alt="Autometiq"></a>
-  <a href="https://sixtyhours.tech"><img src="assets/link-sixtyhours.svg?v=4" alt="SixtyHours"></a>
-  <a href="mailto:autometiq@gmail.com"><img src="assets/link-email.svg?v=4" alt="Email"></a>
+  <a href="https://autometiq.com"><img src="assets/link-autometiq.svg?v=5" alt="Autometiq"></a>
+  <a href="https://sixtyhours.tech"><img src="assets/link-sixtyhours.svg?v=5" alt="SixtyHours"></a>
+  <a href="mailto:autometiq@gmail.com"><img src="assets/link-email.svg?v=5" alt="Email"></a>
   <!-- swap YOUR-HANDLE below for your LinkedIn slug -->
-  <a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="assets/link-linkedin.svg?v=4" alt="LinkedIn"></a>
+  <a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="assets/link-linkedin.svg?v=5" alt="LinkedIn"></a>
 </p>
 
 <p align="center">

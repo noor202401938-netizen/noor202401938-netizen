@@ -1,71 +1,88 @@
 #!/usr/bin/env python3
-"""Generates the Dracula-themed SVG asset set for the GitHub profile README."""
+"""
+Noor Fatima — GitHub profile assets.
+
+ONE-SLAB layout: the profile is two tall continuous SVGs rather than ~19
+floating cards. Sections are separated by hairlines inside a single background,
+so the page reads as one designed surface instead of a stack of boxes.
+
+  slab-a.svg   hero · 01 SYSTEMS · 02 ARSENAL · 03 ACTIVITY label
+  (live stat widgets sit between the slabs — they're external images)
+  slab-b.svg   04 BUILT · 05 PRINCIPLES · 06 NOW · profile.json
+  link-*.svg   footer buttons, separate only so the links stay clickable
+"""
 import os
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
 os.makedirs(OUT, exist_ok=True)
 
 # ── CRYPT palette — gothic (blood & bone) ─────────────────────────────────────
-# Swap this block to retheme everything. Contrast of every text-bearing accent
-# against CRYPT (#14141a) is >= 4.2:1, so chips and labels stay readable.
+# Swap this block to retheme everything. Every text-bearing accent clears
+# 4.2:1 contrast against CRYPT (#14141a).
 VOID       = "#0b0b0e"   # outermost stone
-SEPULCHRE  = "#0e0e13"   # title bars — deeper than the panel
-CRYPT      = "#14141a"   # panel fill
-MORTAR     = "#332a35"   # borders, rules, grid
+SEPULCHRE  = "#0e0e13"   # title bar
+CRYPT      = "#14141a"   # the slab itself
+MORTAR     = "#332a35"   # hairlines, borders, grid
 BONE       = "#e8e3d9"   # primary text
 ASH        = "#7f7480"   # comments, secondary text
 
-BLOOD      = "#d94a5f"   # primary accent  — text-safe crimson
+BLOOD      = "#d94a5f"   # primary accent
 BLOOD_DEEP = "#9b1b30"   # fills, glows, the red title-bar light
-CANDLE     = "#c9a227"   # gold highlight
+CANDLE     = "#c9a227"   # gold
 TALLOW     = "#d9b64a"   # pale gold
 NIGHTSHADE = "#a487bd"   # muted violet
 VERDIGRIS  = "#6faa96"   # aged copper
 MOSS       = "#93ae72"   # grave moss
 
-# ── role aliases (the drawing code below speaks in these) ─────────────────────
-BG      = VOID
-DEEP    = SEPULCHRE
-PANEL   = CRYPT
-LINE    = MORTAR
-FG      = BONE
-CMT     = ASH
-CYAN    = VERDIGRIS
-GREEN   = MOSS
-ORANGE  = CANDLE
-PINK    = BLOOD
-PURPLE  = NIGHTSHADE
-RED     = BLOOD_DEEP
-YELLOW  = TALLOW
-
 MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,Liberation Mono,monospace"
 
-W = 860          # full content width
-ADV = 0.6        # monospace advance ratio
+W    = 860      # slab width
+PAD  = 40       # inner horizontal padding
+CW   = W - PAD * 2
+ADV  = 0.6      # monospace advance ratio
 
 
+# ── primitives ────────────────────────────────────────────────────────────────
 def tw(s, size):
-    """Approximate rendered width of a monospace string."""
     return len(s) * size * ADV
 
 
-def defs(extra=""):
+def esc(s):
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def txt(x, y, s, col, size=12.5, weight=None, ls=None, anchor=None, op=None):
+    a = f'<text x="{x:.1f}" y="{y:.1f}" xml:space="preserve" font-family="{MONO}" font-size="{size}" fill="{col}"'
+    if weight: a += f' font-weight="{weight}"'
+    if ls is not None: a += f' letter-spacing="{ls}"'
+    if anchor: a += f' text-anchor="{anchor}"'
+    if op is not None: a += f' opacity="{op}"'
+    return a + f'>{esc(s)}</text>'
+
+
+def defs(h):
     return f"""<defs>
     <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
-      <path d="M26 0H0V26" fill="none" stroke="{LINE}" stroke-width="1" opacity=".22"/>
+      <path d="M26 0H0V26" fill="none" stroke="{MORTAR}" stroke-width="1" opacity=".2"/>
     </pattern>
-    <radialGradient id="glowA" cx="10%" cy="0%" r="68%">
-      <stop offset="0%" stop-color="{BLOOD_DEEP}" stop-opacity=".24"/>
+    <radialGradient id="glowA" cx="8%" cy="0%" r="55%">
+      <stop offset="0%" stop-color="{BLOOD_DEEP}" stop-opacity=".26"/>
       <stop offset="100%" stop-color="{BLOOD_DEEP}" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glowB" cx="94%" cy="100%" r="62%">
-      <stop offset="0%" stop-color="{CANDLE}" stop-opacity=".11"/>
+    <radialGradient id="glowB" cx="96%" cy="100%" r="45%">
+      <stop offset="0%" stop-color="{CANDLE}" stop-opacity=".10"/>
       <stop offset="100%" stop-color="{CANDLE}" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="{BLOOD}" stop-opacity=".9"/>
       <stop offset="50%" stop-color="{NIGHTSHADE}" stop-opacity=".3"/>
       <stop offset="100%" stop-color="{CANDLE}" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="{MORTAR}" stop-opacity="0"/>
+      <stop offset="14%" stop-color="{MORTAR}" stop-opacity=".95"/>
+      <stop offset="86%" stop-color="{MORTAR}" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="{MORTAR}" stop-opacity="0"/>
     </linearGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="7" result="b"/>
@@ -74,88 +91,79 @@ def defs(extra=""):
     <filter id="dot" x="-160%" y="-160%" width="420%" height="420%">
       <feGaussianBlur stdDeviation="2.6" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>{extra}
+    </filter>
   </defs>"""
 
 
-def frame(w, h, r=14, grid=True, glow=True, fill=PANEL):
-    """Rounded panel with grid + ambient glow."""
-    s = f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="{r}" fill="{fill}"/>'
-    if grid:
-        s += f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="{r}" fill="url(#grid)"/>'
-    if glow:
-        s += (f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="{r}" fill="url(#glowA)"/>'
-              f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="{r}" fill="url(#glowB)"/>')
-    s += f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="{r}" fill="none" stroke="{LINE}" stroke-width="1.5"/>'
+def slab_ground(h, r=16):
+    """The single continuous background. Drawn once per slab, never per section."""
+    s = f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="{r}" fill="{CRYPT}"/>'
+    s += f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="{r}" fill="url(#grid)"/>'
+    s += f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="{r}" fill="url(#glowA)"/>'
+    s += f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="{r}" fill="url(#glowB)"/>'
+    s += f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="{r}" fill="none" stroke="{MORTAR}" stroke-width="1.5"/>'
     return s
 
 
-def titlebar(w, label, y=0, h=36, r=14):
-    """macOS-ish terminal title bar."""
-    return f"""<g transform="translate(0,{y})">
-    <path d="M1 {r} A{r} {r} 0 0 1 {1+r} 1 H{w-1-r} A{r} {r} 0 0 1 {w-1} {r} V{h} H1 Z" fill="{DEEP}"/>
-    <line x1="1" y1="{h}" x2="{w-1}" y2="{h}" stroke="{LINE}" stroke-width="1.5"/>
-    <circle cx="22" cy="{h/2}" r="5.5" fill="{RED}" opacity=".9"/>
-    <circle cx="42" cy="{h/2}" r="5.5" fill="{YELLOW}" opacity=".9"/>
-    <circle cx="62" cy="{h/2}" r="5.5" fill="{GREEN}" opacity=".9"/>
-    <text x="{w/2}" y="{h/2+4}" text-anchor="middle" font-family="{MONO}" font-size="12"
-          fill="{CMT}" letter-spacing="1">{label}</text>
-  </g>"""
+def titlebar(label, h=38, r=16):
+    return (f'<path d="M1 {r} A{r} {r} 0 0 1 {1+r} 1 H{W-1-r} A{r} {r} 0 0 1 {W-1} {r} V{h} H1 Z" fill="{SEPULCHRE}"/>'
+            f'<line x1="1" y1="{h}" x2="{W-1}" y2="{h}" stroke="{MORTAR}" stroke-width="1.5"/>'
+            f'<circle cx="24" cy="{h/2}" r="5.5" fill="{BLOOD_DEEP}"/>'
+            f'<circle cx="44" cy="{h/2}" r="5.5" fill="{TALLOW}" opacity=".85"/>'
+            f'<circle cx="64" cy="{h/2}" r="5.5" fill="{MOSS}" opacity=".85"/>'
+            + txt(W/2, h/2 + 4, label, ASH, 12, ls=1, anchor="middle"))
 
 
-def svg(w, h, body, extra_defs=""):
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
-            f'viewBox="0 0 {w} {h}" fill="none" role="img">\n  {defs(extra_defs)}\n  {body}\n</svg>\n')
+def hairline(y):
+    return f'<rect x="{PAD}" y="{y}" width="{CW}" height="1" fill="url(#hair)"/>'
 
 
-def write(name, content):
-    with open(os.path.join(OUT, name), "w") as f:
-        f.write(content)
-    print(f"  wrote assets/{name}")
+def sec(num, title, note, accent, y):
+    """Inline section marker — a label in the flow, NOT a box of its own."""
+    s = (f'<rect x="{PAD}" y="{y-17}" width="42" height="26" rx="7" fill="{accent}" fill-opacity=".14" '
+         f'stroke="{accent}" stroke-opacity=".45" stroke-width="1.1"/>')
+    s += txt(PAD + 21, y + 1, num, accent, 13, weight=700, ls=1, anchor="middle")
+    s += txt(PAD + 58, y + 1.5, title, BONE, 16.5, weight=700, ls=3.2)
+    tx = PAD + 58 + tw(title, 16.5) + 3.2 * len(title) + 20
+    s += f'<rect x="{tx:.0f}" y="{y-4.5}" width="{W-PAD-tx-tw(note,12)-26:.0f}" height="1.5" rx="1" fill="url(#rule)"/>'
+    s += txt(W - PAD, y + 1, f"// {note}", ASH, 12, anchor="end")
+    return s
 
 
 def chip(x, y, text, color, size=12, ph=9, h=26):
-    """Rounded tag."""
     w = tw(text, size) + ph * 2
-    return (f'<g><rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="{h}" rx="{h/2}" '
-            f'fill="{color}" fill-opacity=".10" stroke="{color}" stroke-opacity=".38" stroke-width="1"/>'
-            f'<text x="{x+ph:.1f}" y="{y+h/2+4.2}" font-family="{MONO}" font-size="{size}" '
-            f'fill="{color}">{text}</text></g>', w)
+    return (f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="{h}" rx="{h/2}" fill="{color}" '
+            f'fill-opacity=".10" stroke="{color}" stroke-opacity=".38" stroke-width="1"/>'
+            + txt(x + ph, y + h / 2 + 4.2, text, color, size), w)
+
+
+def chiprow(x, y, items, color, size=12, gap=9):
+    out, cx = "", x
+    for it in items:
+        g, w = chip(cx, y, it, color, size=size)
+        out += g
+        cx += w + gap
+    return out
 
 
 def vampire(x, y, s=1.0):
-    """Small engraving-style vampire: caped figure, high collar, blood eyes.
-    Drawn in a 100 x 124 local box, then translated/scaled into place."""
+    """Engraving-style vampire in a 100 x 124 local box."""
     g = f'<g transform="translate({x},{y}) scale({s})">'
-
-    # ambient blood haze behind the figure
     g += f'<ellipse cx="50" cy="66" rx="46" ry="54" fill="{BLOOD_DEEP}" opacity=".14" filter="url(#soft)"/>'
-
-    # cape lining / high collar — the two sweeping points behind the head
     g += (f'<path d="M37 59 C26 51 19 35 16 11 C26 29 35 45 42 56 Z" fill="{BLOOD_DEEP}"/>'
           f'<path d="M63 59 C74 51 81 35 84 11 C74 29 65 45 58 56 Z" fill="{BLOOD_DEEP}"/>')
-
-    # cape body, scalloped hem
     g += (f'<path d="M50 57 C31 57 23 66 19 80 L9 118 Q20 110 30 118 Q40 110 50 118 '
           f'Q60 110 70 118 Q80 110 91 118 L81 80 C77 66 69 57 50 57 Z" '
           f'fill="{VOID}" stroke="{BLOOD_DEEP}" stroke-width="1.4" stroke-opacity=".8"/>')
-
-    # shirt front + blood cravat
     g += f'<path d="M41 56 L50 63 L59 56 L62 84 L38 84 Z" fill="#221d24"/>'
     g += f'<path d="M50 62 L54.5 70 L50 78 L45.5 70 Z" fill="{BLOOD}"/>'
-
-    # head — pallid, not glowing
     g += f'<ellipse cx="50" cy="40" rx="13.6" ry="16.4" fill="#ded8ce"/>'
-    # hair with widow's peak
     g += (f'<path d="M50 22.6 C60 22.6 64.2 30 64.2 40.5 C64.2 33.2 60.4 29.2 56.6 29.2 L50 37.6 '
           f'L43.4 29.2 C39.6 29.2 35.8 33.2 35.8 40.5 C35.8 30 40 22.6 50 22.6 Z" fill="{VOID}"/>')
-    # sunken brow — this is what makes him sinister rather than cute
     g += (f'<path d="M41.6 37.8 L47.4 40.2 L47 41.5 L41.4 39.3 Z" fill="{VOID}" opacity=".55"/>'
           f'<path d="M58.4 37.8 L52.6 40.2 L53 41.5 L58.6 39.3 Z" fill="{VOID}" opacity=".55"/>')
-    # eyes
     g += (f'<circle cx="44.6" cy="43.2" r="1.6" fill="{BLOOD}"/>'
           f'<circle cx="55.4" cy="43.2" r="1.6" fill="{BLOOD}"/>')
-    # grim mouth + fangs
     g += (f'<path d="M45.4 50 Q50 51.4 54.6 50" fill="none" stroke="{VOID}" stroke-width="1.1" '
           f'stroke-linecap="round" opacity=".8"/>')
     g += (f'<path d="M47.1 50.6 L48.6 50.7 L47.9 55.2 Z" fill="#f2eee7"/>'
@@ -163,268 +171,144 @@ def vampire(x, y, s=1.0):
     return g + "</g>"
 
 
-def chiprow(x, y, items, colors, size=12, gap=9):
-    out, cx = "", x
-    for i, it in enumerate(items):
-        g, w = chip(cx, y, it, colors[i % len(colors)], size=size)
-        out += g
-        cx += w + gap
-    return out, cx - x - gap
+def svg(h, body):
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{h}" '
+            f'viewBox="0 0 {W} {h}" fill="none" role="img">\n  {defs(h)}\n  {body}\n</svg>\n')
+
+
+def write(name, content):
+    with open(os.path.join(OUT, name), "w") as f:
+        f.write(content)
+    print(f"  assets/{name}")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 1. HERO
+# SLAB A — hero · 01 SYSTEMS · 02 ARSENAL · 03 ACTIVITY
 # ══════════════════════════════════════════════════════════════════════════════
-def hero():
-    h = 300
-    b = frame(W, h)
-    b += titlebar(W, "~/noor/profile — zsh")
+def hero(y):
+    b = txt(PAD, y + 40, "›", MOSS, 14) + txt(PAD + 18, y + 40, "whoami", VERDIGRIS, 14)
+    b += txt(PAD, y + 100, "NOOR FATIMA", BLOOD, 46, weight=700, ls=2, op=".34").replace(
+        "<text", '<text filter="url(#soft)"', 1)
+    b += txt(PAD, y + 100, "NOOR FATIMA", BONE, 46, weight=700, ls=2)
 
-    x = 40
-    b += f'<text x="{x}" y="86" font-family="{MONO}" font-size="14" fill="{GREEN}">&#8250;</text>'
-    b += f'<text x="{x+18}" y="86" font-family="{MONO}" font-size="14" fill="{CYAN}">whoami</text>'
-
-    # name
-    b += (f'<text x="{x}" y="146" font-family="{MONO}" font-size="46" font-weight="700" '
-          f'letter-spacing="2" fill="{BLOOD}" opacity=".34" filter="url(#soft)">NOOR FATIMA</text>')
-    b += (f'<text x="{x}" y="146" font-family="{MONO}" font-size="46" font-weight="700" '
-          f'letter-spacing="2" fill="{FG}">NOOR FATIMA</text>')
-
-    # role line
-    roles = [("SOFTWARE ENGINEER", BLOOD), ("FOUNDER", CANDLE), ("BUILDER", NIGHTSHADE)]
-    cx = x
-    for i, (t, c) in enumerate(roles):
-        b += (f'<text x="{cx:.1f}" y="176" font-family="{MONO}" font-size="13" letter-spacing="2.4" '
-              f'fill="{c}">{t}</text>')
+    cx = PAD
+    for i, (t, c) in enumerate([("SOFTWARE ENGINEER", BLOOD), ("FOUNDER", CANDLE), ("BUILDER", NIGHTSHADE)]):
+        b += txt(cx, y + 130, t, c, 13, ls=2.4)
         cx += tw(t, 13) + 2.4 * len(t) + 10
-        if i < len(roles) - 1:
-            b += f'<text x="{cx:.1f}" y="176" font-family="{MONO}" font-size="13" fill="{LINE}">/</text>'
+        if i < 2:
+            b += txt(cx, y + 130, "/", MORTAR, 13)
             cx += 20
 
-    b += (f'<text x="{x}" y="212" font-family="{MONO}" font-size="14.5" fill="{FG}" opacity=".82">'
-          f'Building AI-first systems for Pakistani SMEs.</text>')
+    b += txt(PAD, y + 166, "Building AI-first systems for Pakistani SMEs.", BONE, 14.5, op=".85")
+    c1, w1 = chip(PAD, y + 186, "SixtyHours.tech", BLOOD, size=12.5)
+    c2, _ = chip(PAD + w1 + 10, y + 186, "Autometiq.com", VERDIGRIS, size=12.5)
+    b += c1 + c2
 
-    # links
-    lk, _ = chiprow(x, 232, ["SixtyHours.tech", "Autometiq.com"], [BLOOD, VERDIGRIS], size=12.5)
-    b += lk
+    b += vampire(470, y + 34, 0.9)
 
-    # the resident vampire — sits in the gap between the text block and the status rail
-    b += vampire(472, 86, 0.92)
-
-    # status column (right)
-    b += f'<line x1="596" y1="62" x2="596" y2="{h-30}" stroke="{LINE}" stroke-width="1" opacity=".7"/>'
-    b += (f'<text x="628" y="86" font-family="{MONO}" font-size="11" letter-spacing="2.2" '
-          f'fill="{CMT}">&#8250; STATUS</text>')
+    b += f'<line x1="600" y1="{y+16}" x2="600" y2="{y+216}" stroke="{MORTAR}" stroke-width="1" opacity=".8"/>'
+    b += txt(632, y + 40, "› STATUS", ASH, 11, ls=2.2)
     for i, (t, c) in enumerate([("BUILDING", MOSS), ("SHIPPING", BLOOD), ("LEARNING", VERDIGRIS)]):
-        yy = 118 + i * 30
-        b += f'<circle cx="633" cy="{yy-4}" r="4.2" fill="{c}" filter="url(#dot)"/>'
-        b += (f'<text x="650" y="{yy}" font-family="{MONO}" font-size="13" letter-spacing="1.6" '
-              f'fill="{FG}" opacity=".9">{t}</text>')
-
-    b += f'<line x1="628" y1="204" x2="{W-40}" y2="204" stroke="{LINE}" stroke-width="1" opacity=".6"/>'
-    b += (f'<text x="628" y="232" font-family="{MONO}" font-size="11.5" fill="{CMT}">'
-          f'Faisalabad, PK &#8212; UTC+5</text>')
-
-    # prompt + blinking cursor
-    b += f'<text x="{x}" y="{h-26}" font-family="{MONO}" font-size="13.5" fill="{GREEN}">&#8250;</text>'
-    b += (f'<rect x="{x+18}" y="{h-38}" width="9" height="16" fill="{FG}" opacity=".85">'
-          f'<animate attributeName="opacity" values="0;0;.9;.9" dur="1.1s" repeatCount="indefinite"/></rect>')
-
-    write("hero.svg", svg(W, h, b))
+        yy = y + 72 + i * 30
+        b += f'<circle cx="637" cy="{yy-4}" r="4.2" fill="{c}" filter="url(#dot)"/>'
+        b += txt(654, yy, t, BONE, 13, ls=1.6, op=".92")
+    b += f'<line x1="632" y1="{y+176}" x2="{W-PAD}" y2="{y+176}" stroke="{MORTAR}" stroke-width="1" opacity=".7"/>'
+    b += txt(632, y + 202, "Faisalabad, PK — UTC+5", ASH, 11.5)
+    return b, 234
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# 2. SECTION HEADERS
-# ══════════════════════════════════════════════════════════════════════════════
-def section(num, title, note, accent, fname):
-    h = 58
-    # These carry their own dark ground — without it the bone text is invisible
-    # on GitHub's LIGHT theme, which is the one place a transparent SVG breaks.
-    b = frame(W, h, r=11)
-    # number badge
-    b += (f'<rect x="14" y="12" width="52" height="34" rx="8" fill="{accent}" fill-opacity=".14" '
-          f'stroke="{accent}" stroke-opacity=".45" stroke-width="1.2"/>')
-    b += (f'<text x="40" y="34.5" text-anchor="middle" font-family="{MONO}" font-size="14" '
-          f'font-weight="700" letter-spacing="1" fill="{accent}">{num}</text>')
-    b += (f'<text x="82" y="35" font-family="{MONO}" font-size="17" font-weight="700" '
-          f'letter-spacing="3.2" fill="{FG}">{title}</text>')
-
-    tx = 82 + tw(title, 17) + 3.2 * len(title) + 22
-    b += f'<rect x="{tx:.0f}" y="28.5" width="{W-tx-175:.0f}" height="1.6" rx="1" fill="url(#rule)"/>'
-    b += (f'<text x="{W-18}" y="34" text-anchor="end" font-family="{MONO}" font-size="12" '
-          f'fill="{CMT}">// {note}</text>')
-    write(fname, svg(W, h, b))
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# 3. PRODUCT CARDS
-# ══════════════════════════════════════════════════════════════════════════════
-def product(fname, name, domain, tagline, lines, stack, status, status_color, accent):
-    w, h = 418, 342
-    b = frame(w, h, r=13)
-    b += titlebar(w, domain, h=32, r=13)
-
-    b += (f'<text x="24" y="70" font-family="{MONO}" font-size="21" font-weight="700" '
-          f'letter-spacing="1.2" fill="{accent}" opacity=".35" filter="url(#soft)">{name}</text>')
-    b += (f'<text x="24" y="70" font-family="{MONO}" font-size="21" font-weight="700" '
-          f'letter-spacing="1.2" fill="{FG}">{name}</text>')
-    b += (f'<text x="24" y="92" font-family="{MONO}" font-size="11.5" letter-spacing="1.5" '
-          f'fill="{accent}">{tagline}</text>')
-    b += f'<line x1="24" y1="106" x2="{w-24}" y2="106" stroke="{LINE}" stroke-width="1"/>'
-
+def product_col(x, y, name, domain, tagline, lines, stack, status, status_col, accent):
+    b = txt(x, y, name, accent, 21, weight=700, ls=1.2, op=".35").replace(
+        "<text", '<text filter="url(#soft)"', 1)
+    b += txt(x, y, name, BONE, 21, weight=700, ls=1.2)
+    b += txt(x + tw(name, 21) + 1.2 * len(name) + 14, y, domain, ASH, 11.5)
+    b += txt(x, y + 22, tagline, accent, 11.5, ls=1.5)
     for i, ln in enumerate(lines):
-        b += (f'<text x="24" y="{130+i*20}" font-family="{MONO}" font-size="12" fill="{FG}" '
-              f'opacity=".78">{ln}</text>')
-
-    sy = 130 + len(lines) * 20 + 10
-    b += (f'<text x="24" y="{sy+10}" font-family="{MONO}" font-size="10" letter-spacing="2" '
-          f'fill="{CMT}">STACK</text>')
-    row1, _ = chiprow(24, sy + 20, stack[0], [accent], size=11)
-    b += row1
+        b += txt(x, y + 52 + i * 20, ln, BONE, 12.5, op=".8")
+    sy = y + 52 + len(lines) * 20 + 12
+    b += txt(x, sy, "STACK", ASH, 10, ls=2)
+    b += chiprow(x, sy + 10, stack[0], accent, size=11)
     if len(stack) > 1:
-        row2, _ = chiprow(24, sy + 20 + 30, stack[1], [accent], size=11)
-        b += row2
-
-    b += f'<line x1="24" y1="{h-44}" x2="{w-24}" y2="{h-44}" stroke="{LINE}" stroke-width="1" opacity=".7"/>'
-    b += f'<circle cx="30" cy="{h-25}" r="4" fill="{status_color}" filter="url(#dot)"/>'
-    b += (f'<text x="44" y="{h-21}" font-family="{MONO}" font-size="11" letter-spacing="1.4" '
-          f'fill="{status_color}">{status}</text>')
-    b += (f'<text x="{w-24}" y="{h-21}" text-anchor="end" font-family="{MONO}" font-size="11" '
-          f'fill="{CMT}">&#8250; visit &#8594;</text>')
-    write(fname, svg(w, h, b))
+        b += chiprow(x, sy + 40, stack[1], accent, size=11)
+    fy = sy + 82
+    b += f'<circle cx="{x+5}" cy="{fy-4}" r="4" fill="{status_col}" filter="url(#dot)"/>'
+    b += txt(x + 19, fy, status, status_col, 11, ls=1.4)
+    return b, fy - y + 10
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# 4. ARSENAL
-# ══════════════════════════════════════════════════════════════════════════════
-def arsenal():
-    rows = [
-        ("LANGUAGES",      ["Python", "TypeScript", "JavaScript", "SQL"],                     PINK),
-        ("AI / AUTOMATION",["Claude", "n8n", "Twilio", "Deepgram", "ElevenLabs"],             PURPLE),
-        ("BACKEND",        ["FastAPI", "Fastify", "Supabase", "PostgreSQL", "Redis"],         GREEN),
-        ("FRONTEND",       ["Next.js", "React", "Tailwind", "shadcn/ui"],                     CYAN),
-        ("INFRA",          ["Docker", "Vercel", "Railway", "GitHub Actions"],                 ORANGE),
-    ]
-    h = 74 + (len(rows) - 1) * 54 + 44
-    b = frame(W, h)
-    b += titlebar(W, "~/noor/arsenal — cat stack.toml")
+def slab_a():
+    y = 38
+    body, hh = hero(y + 18)
+    y += 18 + hh
 
-    for i, (label, items, color) in enumerate(rows):
-        y = 74 + i * 54
-        b += f'<rect x="32" y="{y-14}" width="3" height="28" rx="1.5" fill="{color}" opacity=".75"/>'
-        b += (f'<text x="48" y="{y+4}" font-family="{MONO}" font-size="11" letter-spacing="1.8" '
-              f'fill="{color}">{label}</text>')
-        row, _ = chiprow(252, y - 13, items, [color], size=12)
-        b += row
-        if i < len(rows) - 1:
-            b += (f'<line x1="32" y1="{y+27}" x2="{W-32}" y2="{y+27}" stroke="{LINE}" '
-                  f'stroke-width="1" opacity=".55"/>')
-    write("arsenal.svg", svg(W, h, b))
+    y += 26
+    body += hairline(y)
+    y += 40
 
+    body += sec("01", "SYSTEMS", "things that run without me", BLOOD, y)
+    y += 44
 
-# ══════════════════════════════════════════════════════════════════════════════
-# 5. PRINCIPLES SPOTLIGHT
-# ══════════════════════════════════════════════════════════════════════════════
-def principles():
-    h = 166
-    b = frame(W, h)
-    b += f'<path d="M1 15 A14 14 0 0 1 15 1 H6 V{h-1} H15 A14 14 0 0 1 1 {h-15} Z" fill="{BLOOD}" opacity=".95"/>'
-    b += f'<rect x="5" y="1" width="2" height="{h-2}" fill="{BLOOD}" opacity=".95"/>'
-    b += (f'<text x="46" y="54" font-family="{MONO}" font-size="11.5" letter-spacing="2.4" '
-          f'fill="{CMT}">// CORE AXIOM</text>')
-    q = "Systems &#62; shortcuts. Always."
-    b += (f'<text x="46" y="106" font-family="{MONO}" font-size="33" font-weight="700" '
-          f'letter-spacing="0.5" fill="{CANDLE}" opacity=".28" filter="url(#soft)">{q}</text>')
-    b += (f'<text x="46" y="106" font-family="{MONO}" font-size="33" font-weight="700" '
-          f'letter-spacing="0.5" fill="{FG}">{q}</text>')
-    b += (f'<text x="46" y="136" font-family="{MONO}" font-size="12" fill="{CMT}">'
-          f'A thing that works once is a demo. A thing that works unattended is a product.</text>')
-    write("principles.svg", svg(W, h, b))
+    colw = (CW - 52) / 2
+    lx, rx = PAD, PAD + colw + 52
+    a, ha = product_col(lx, y + 18, "SIXTYHOURS", "sixtyhours.tech",
+                        "ENGINEERING TALENT, BUILT FROM SCRATCH",
+                        ["An 8-week, build-it-yourself program across",
+                         "ML/AI and Software Dev tracks. Students write",
+                         "the algorithms, not just the imports."],
+                        [["Next.js", "FastAPI", "Supabase"], ["Slack API", "Claude"]],
+                        "COHORT LIVE", MOSS, BLOOD)
+    c, hc = product_col(rx, y + 18, "AUTOMETIQ", "autometiq.com",
+                        "AI OPERATIONS FOR PAKISTANI SMES",
+                        ["Voice agents, workflow automation and internal",
+                         "tooling for businesses that never had an",
+                         "engineering team to begin with."],
+                        [["n8n", "Twilio", "Deepgram"], ["ElevenLabs", "Claude", "Redis"]],
+                        "SHIPPING", VERDIGRIS, VERDIGRIS)
+    body += a + c
+    colh = max(ha, hc)
+    body += (f'<line x1="{PAD+colw+26}" y1="{y+6}" x2="{PAD+colw+26}" y2="{y+colh+18}" '
+             f'stroke="{MORTAR}" stroke-width="1" opacity=".75"/>')
+    y += 18 + colh
 
+    y += 22
+    body += hairline(y)
+    y += 40
 
-# ══════════════════════════════════════════════════════════════════════════════
-# 6. NOW PIPELINE
-# ══════════════════════════════════════════════════════════════════════════════
-def now():
-    h = 138
-    nodes = [
-        ("AUTOMETIQ",  "revenue engine",   BLOOD),
-        ("SIXTYHOURS", "talent pipeline",  CANDLE),
-        ("PK AI INFRA","the long game",    NIGHTSHADE),
-        ("CONTENT",    "compounding",      VERDIGRIS),
-    ]
-    b = frame(W, h)
-    b += (f'<text x="32" y="36" font-family="{MONO}" font-size="11" letter-spacing="2.2" '
-          f'fill="{CMT}">// CURRENT TRAJECTORY</text>')
-
-    pad, gap = 32, 26
-    bw = (W - pad * 2 - gap * (len(nodes) - 1)) / len(nodes)
-    for i, (t, sub, c) in enumerate(nodes):
-        x = pad + i * (bw + gap)
-        b += (f'<rect x="{x:.1f}" y="60" width="{bw:.1f}" height="52" rx="10" fill="{c}" '
-              f'fill-opacity=".08" stroke="{c}" stroke-opacity=".42" stroke-width="1.2"/>')
-        b += (f'<text x="{x+bw/2:.1f}" y="83" text-anchor="middle" font-family="{MONO}" '
-              f'font-size="12.5" font-weight="700" letter-spacing="1.2" fill="{c}">{t}</text>')
-        b += (f'<text x="{x+bw/2:.1f}" y="100" text-anchor="middle" font-family="{MONO}" '
-              f'font-size="10.5" fill="{CMT}">{sub}</text>')
-        if i < len(nodes) - 1:
-            ax = x + bw + gap / 2
-            b += (f'<path d="M{ax-7:.1f} 86 H{ax+4:.1f} M{ax:.1f} 82 l4 4 l-4 4" fill="none" '
-                  f'stroke="{LINE}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>')
-    write("now.svg", svg(W, h, b))
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# 7. PROFILE / FOOTER CARD
-# ══════════════════════════════════════════════════════════════════════════════
-def profilecard():
-    h = 206
-    b = frame(W, h)
-    b += titlebar(W, "~/noor — cat profile.json")
+    body += sec("02", "ARSENAL", "tools, not trophies", NIGHTSHADE, y)
+    y += 40
 
     rows = [
-        ("LOCATION", "Faisalabad, Pakistan", FG),
-        ("STATUS",   "Building",             MOSS),
-        ("FOCUS",    "AI  ×  SMEs  ×  Automation", VERDIGRIS),
-        ("OPEN TO",  "Collaborations  ·  Consulting  ·  Speaking", BLOOD),
+        ("LANGUAGES",       ["Python", "TypeScript", "JavaScript", "SQL"],              BLOOD),
+        ("AI / AUTOMATION", ["Claude", "n8n", "Twilio", "Deepgram", "ElevenLabs"],      NIGHTSHADE),
+        ("BACKEND",         ["FastAPI", "Fastify", "Supabase", "PostgreSQL", "Redis"],  MOSS),
+        ("FRONTEND",        ["Next.js", "React", "Tailwind", "shadcn/ui"],              VERDIGRIS),
+        ("INFRA",           ["Docker", "Vercel", "Railway", "GitHub Actions"],          CANDLE),
     ]
-    for i, (k, v, c) in enumerate(rows):
-        y = 76 + i * 30
-        b += (f'<text x="40" y="{y}" font-family="{MONO}" font-size="11" letter-spacing="2" '
-              f'fill="{CMT}">{k}</text>')
-        b += f'<text x="176" y="{y}" font-family="{MONO}" font-size="13" fill="{c}">{v}</text>'
+    for i, (label, items, col) in enumerate(rows):
+        ry = y + 22 + i * 50
+        body += f'<rect x="{PAD}" y="{ry-13}" width="3" height="26" rx="1.5" fill="{col}" opacity=".8"/>'
+        body += txt(PAD + 16, ry + 4, label, col, 11, ls=1.8)
+        body += chiprow(PAD + 212, ry - 13, items, col, size=12)
+    y += 22 + len(rows) * 50
 
-    b += (f'<text x="{W-40}" y="{h-24}" text-anchor="end" font-family="{MONO}" font-size="11.5" '
-          f'fill="{CMT}">&#8250; thanks for reading the source</text>')
-    write("profile-card.svg", svg(W, h, b))
+    y += 14
+    body += hairline(y)
+    y += 40
+    body += sec("03", "ACTIVITY", "the receipts ↓", VERDIGRIS, y)
+    y += 34
+
+    h = y
+    write("slab-a.svg", svg(h, slab_ground(h) + titlebar("~/noor/profile — zsh") + body))
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 7b. CODE PANELS
-# GitHub styles ``` fenced blocks with its own syntax theme, which fights the
-# palette. These render the same content as SVG so the whole page is one surface.
+# SLAB B — 04 BUILT · 05 PRINCIPLES · 06 NOW · profile.json
 # ══════════════════════════════════════════════════════════════════════════════
-def esc(s):
-    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+def slab_b():
+    y = 44
+    body = sec("04", "BUILT", "shipped, not screenshotted", MOSS, y)
+    y += 42
 
-
-def codepanel(fname, title, lines, fs=12.5, pad=26, lh=20):
-    """lines: list of [(text, colour), ...] segment lists. [] renders a blank line."""
-    h = 36 + pad + len(lines) * lh + pad - 6
-    b = frame(W, h)
-    b += titlebar(W, title)
-    for i, segs in enumerate(lines):
-        y = 36 + pad + fs + i * lh
-        x = 32.0
-        for text, col in segs:
-            if text.strip():
-                b += (f'<text x="{x:.1f}" y="{y:.1f}" xml:space="preserve" font-family="{MONO}" '
-                      f'font-size="{fs}" fill="{col}">{esc(text)}</text>')
-            x += len(text) * fs * ADV
-    write(fname, svg(W, h, b))
-
-
-def built_console():
     P = [("noor@github", MOSS), (" ~ ", ASH), ("$", BLOOD)]
     entries = [
         ("voice-agent-core/",    "telephony + STT + LLM + TTS loop, sub-second turn-taking"),
@@ -433,16 +317,36 @@ def built_console():
         ("retrieval-lab/",       "BM25 + FAISS from scratch, no LangChain"),
     ]
     lines = [P + [(" ls -1 built/", BONE)], []]
-    for name, note in entries:
-        lines.append([("  " + name.ljust(23), CANDLE), ("# " + note, ASH)])
+    for n, note in entries:
+        lines.append([("  " + n.ljust(23), CANDLE), ("# " + note, ASH)])
     lines += [[], P + [("  # replace these with your real repos — one line, one truth", ASH)]]
-    codepanel("built-console.svg", "~/noor — ls -1 built/", lines)
+    for i, segs in enumerate(lines):
+        ly, lx = y + 12 + i * 20, float(PAD)
+        for t, c in segs:
+            if t.strip():
+                body += txt(lx, ly, t, c, 12.5)
+            lx += len(t) * 12.5 * ADV
+    y += 12 + len(lines) * 20
 
+    y += 20
+    body += hairline(y)
+    y += 40
+    body += sec("05", "PRINCIPLES", "how I make decisions", CANDLE, y)
+    y += 40
 
-def principles_yml():
+    q = "Systems > shortcuts. Always."
+    body += f'<rect x="{PAD}" y="{y+4}" width="3" height="66" rx="1.5" fill="{BLOOD}" opacity=".9"/>'
+    body += txt(PAD + 18, y + 20, "// CORE AXIOM", ASH, 11.5, ls=2.4)
+    body += txt(PAD + 18, y + 56, q, CANDLE, 31, weight=700, op=".28").replace(
+        "<text", '<text filter="url(#soft)"', 1)
+    body += txt(PAD + 18, y + 56, q, BONE, 31, weight=700)
+    body += txt(PAD + 18, y + 78, "A thing that works once is a demo. "
+                                  "A thing that works unattended is a product.", ASH, 12)
+    y += 104
+
     def kv(s):
         return [("  - ", BLOOD), (f'"{s}"', BONE)]
-    lines = [
+    yml = [
         [("# ~/noor/principles.yml", ASH)], [],
         [("build:", BLOOD)],
         kv("Ship the ugly version that runs. Beauty is a refactor away; usage isn't."),
@@ -455,61 +359,91 @@ def principles_yml():
         kv("Pakistani SMEs don't need AI. They need their Tuesday back."),
         kv("Automate the boring thing first — trust is earned on small wins."),
     ]
-    codepanel("principles-yml.svg", "~/noor — cat principles.yml", lines)
+    for i, segs in enumerate(yml):
+        ly, lx = y + i * 20, float(PAD)
+        for t, c in segs:
+            if t.strip():
+                body += txt(lx, ly, t, c, 12.5)
+            lx += len(t) * 12.5 * ADV
+    y += len(yml) * 20
+
+    y += 16
+    body += hairline(y)
+    y += 40
+    body += sec("06", "NOW", "what has my attention", TALLOW, y)
+    y += 36
+
+    nodes = [("AUTOMETIQ", "revenue engine", BLOOD), ("SIXTYHOURS", "talent pipeline", CANDLE),
+             ("PK AI INFRA", "the long game", NIGHTSHADE), ("CONTENT", "compounding", VERDIGRIS)]
+    gap, n = 26, 4
+    bw = (CW - gap * (n - 1)) / n
+    for i, (t, sub, c) in enumerate(nodes):
+        x = PAD + i * (bw + gap)
+        body += (f'<rect x="{x:.1f}" y="{y}" width="{bw:.1f}" height="52" rx="10" fill="{c}" '
+                 f'fill-opacity=".08" stroke="{c}" stroke-opacity=".42" stroke-width="1.2"/>')
+        body += txt(x + bw / 2, y + 23, t, c, 12.5, weight=700, ls=1.2, anchor="middle")
+        body += txt(x + bw / 2, y + 40, sub, ASH, 10.5, anchor="middle")
+        if i < n - 1:
+            ax = x + bw + gap / 2
+            body += (f'<path d="M{ax-7:.1f} {y+26} H{ax+4:.1f} M{ax:.1f} {y+22} l4 4 l-4 4" fill="none" '
+                     f'stroke="{MORTAR}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>')
+    y += 76
+
+    for i, (k, rest) in enumerate([
+        ("Autometiq",         "voice agents and workflow automation in production for SME clients."),
+        ("SixtyHours",        "running the current cohort across the ML/AI and Software Dev tracks."),
+        ("PK AI infrastructure", "local-context tooling that doesn't assume a US-shaped business."),
+        ("Content",           "writing up what actually works, so the next person skips a month."),
+    ]):
+        ly = y + i * 22
+        body += f'<circle cx="{PAD+3}" cy="{ly-4}" r="2.6" fill="{BLOOD}" opacity=".8"/>'
+        body += txt(PAD + 16, ly, k, BONE, 12.5, weight=700)
+        body += txt(PAD + 16 + tw(k, 12.5) + 10, ly, "— " + rest, ASH, 12.5)
+    y += 4 * 22
+
+    y += 18
+    body += hairline(y)
+    y += 40
+
+    for i, (k, v, c) in enumerate([
+        ("LOCATION", "Faisalabad, Pakistan", BONE),
+        ("STATUS",   "Building", MOSS),
+        ("FOCUS",    "AI  ×  SMEs  ×  Automation", VERDIGRIS),
+        ("OPEN TO",  "Collaborations  ·  Consulting  ·  Speaking", BLOOD),
+    ]):
+        ry = y + i * 28
+        body += txt(PAD, ry, k, ASH, 11, ls=2)
+        body += txt(PAD + 136, ry, v, c, 13)
+    y += 4 * 28
+
+    body += txt(W - PAD, y + 4, "› thanks for reading the source", ASH, 11.5, anchor="end")
+    y += 30
+
+    h = y
+    write("slab-b.svg", svg(h, slab_ground(h) + body))
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 8. FOOTER LINK BUTTONS
+# FOOTER LINK BUTTONS — separate files only so the <a> links stay clickable
 # ══════════════════════════════════════════════════════════════════════════════
 def linkbtn(fname, label, color):
-    w, h = 204, 46
-    b = (f'<rect x="1.5" y="1.5" width="{w-3}" height="{h-3}" rx="10" fill="{PANEL}"/>'
-         f'<rect x="1.5" y="1.5" width="{w-3}" height="{h-3}" rx="10" fill="url(#grid)"/>'
-         f'<rect x="1.5" y="1.5" width="{w-3}" height="{h-3}" rx="10" fill="none" '
-         f'stroke="{color}" stroke-opacity=".45" stroke-width="1.5"/>')
-    b += f'<circle cx="24" cy="{h/2}" r="4" fill="{color}" filter="url(#dot)"/>'
-    b += (f'<text x="42" y="{h/2+4.5}" font-family="{MONO}" font-size="12.5" letter-spacing="1.8" '
-          f'fill="{color}">{label}</text>')
-    b += (f'<text x="{w-18}" y="{h/2+4.5}" text-anchor="end" font-family="{MONO}" font-size="12.5" '
-          f'fill="{CMT}">&#8594;</text>')
-    write(fname, svg(w, h, b))
+    global W
+    keep, W = W, 204
+    h = 46
+    b = (f'<rect x="1.5" y="1.5" width="{W-3}" height="{h-3}" rx="10" fill="{CRYPT}"/>'
+         f'<rect x="1.5" y="1.5" width="{W-3}" height="{h-3}" rx="10" fill="url(#grid)"/>'
+         f'<rect x="1.5" y="1.5" width="{W-3}" height="{h-3}" rx="10" fill="none" '
+         f'stroke="{color}" stroke-opacity=".45" stroke-width="1.5"/>'
+         f'<circle cx="24" cy="{h/2}" r="4" fill="{color}" filter="url(#dot)"/>'
+         + txt(42, h / 2 + 4.5, label, color, 12.5, ls=1.8)
+         + txt(W - 18, h / 2 + 4.5, "→", ASH, 12.5, anchor="end"))
+    write(fname, svg(h, b))
+    W = keep
 
 
-# ══════════════════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
-    hero()
-    section("01", "SYSTEMS",    "things that run without me", PINK,   "s01-systems.svg")
-    section("02", "ARSENAL",    "tools, not trophies",        PURPLE, "s02-arsenal.svg")
-    section("03", "ACTIVITY",   "the receipts",               CYAN,   "s03-activity.svg")
-    section("04", "BUILT",      "shipped, not screenshotted", GREEN,  "s04-built.svg")
-    section("05", "PRINCIPLES", "how I make decisions",       ORANGE, "s05-principles.svg")
-    section("06", "NOW",        "what has my attention",      YELLOW, "s06-now.svg")
-
-    product("card-sixtyhours.svg", "SIXTYHOURS", "sixtyhours.tech",
-            "ENGINEERING TALENT, BUILT FROM SCRATCH",
-            ["An 8-week, build-it-yourself program",
-             "across ML/AI and Software Dev tracks.",
-             "Students write the algorithms, not",
-             "just the imports."],
-            [["Next.js", "FastAPI", "Supabase"], ["Slack API", "Claude"]],
-            "COHORT LIVE", GREEN, PINK)
-
-    product("card-autometiq.svg", "AUTOMETIQ", "autometiq.com",
-            "AI OPERATIONS FOR PAKISTANI SMES",
-            ["Voice agents, workflow automation and",
-             "internal tooling for businesses that",
-             "never had an engineering team to",
-             "begin with."],
-            [["n8n", "Twilio", "Deepgram"], ["ElevenLabs", "Claude", "Redis"]],
-            "SHIPPING", CYAN, CYAN)
-
-    arsenal()
-    principles()
-    now()
-    profilecard()
-    built_console()
-    principles_yml()
-
+    slab_a()
+    slab_b()
     linkbtn("link-autometiq.svg",  "AUTOMETIQ",  VERDIGRIS)
     linkbtn("link-sixtyhours.svg", "SIXTYHOURS", BLOOD)
     linkbtn("link-email.svg",      "EMAIL",      CANDLE)
