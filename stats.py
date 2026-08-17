@@ -127,8 +127,8 @@ def main():
     user = fetch()
     if user is None:
         sys.exit(0)          # soft-fail: never clobber good data with a bad run
-    with open(os.path.join(HERE, "stats.json"), "w") as f:
-        json.dump(shape(user), f, indent=1)
+    with open(os.path.join(HERE, "stats.json"), "w", encoding="utf-8") as f:
+        json.dump(shape(user), f, indent=1, ensure_ascii=False)
     print("wrote stats.json")
 
 

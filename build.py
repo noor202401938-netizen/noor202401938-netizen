@@ -100,12 +100,14 @@ def defs(h):
 
 
 def slab_ground(h, r=16):
-    """The single continuous background. Drawn once per slab, never per section."""
-    s = f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="{r}" fill="{CRYPT}"/>'
-    s += f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="{r}" fill="url(#grid)"/>'
-    s += f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="{r}" fill="url(#glowA)"/>'
-    s += f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="{r}" fill="url(#glowB)"/>'
-    s += f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="{r}" fill="none" stroke="{MORTAR}" stroke-width="1.5"/>'
+    """The single continuous background. Top corners rounded, bottom left SQUARE so
+    the clickable link bar butts flush against it with no page background between."""
+    shape = f"M1 {r} A{r} {r} 0 0 1 {1+r} 1 H{W-1-r} A{r} {r} 0 0 1 {W-1} {r} V{h} H1 Z"
+    s = f'<path d="{shape}" fill="{CRYPT}"/>'
+    s += f'<path d="{shape}" fill="url(#grid)"/>'
+    s += f'<path d="{shape}" fill="url(#glowA)"/>'
+    s += f'<path d="{shape}" fill="url(#glowB)"/>'
+    s += f'<path d="{shape}" fill="none" stroke="{MORTAR}" stroke-width="1.5"/>'
     return s
 
 
@@ -181,7 +183,9 @@ def svg(h, body):
 
 
 def write(name, content):
-    with open(os.path.join(OUT, name), "w") as f:
+    # encoding is explicit: Windows defaults to cp1252, which cannot encode the
+    # arrows/dashes used here and would silently mis-encode the rest.
+    with open(os.path.join(OUT, name), "w", encoding="utf-8") as f:
         f.write(content)
     print(f"  assets/{name}")
 
@@ -257,7 +261,7 @@ def lang_bars(x, y, w, langs):
 
 def load_stats():
     try:
-        with open(os.path.join(os.path.dirname(OUT), "stats.json")) as f:
+        with open(os.path.join(os.path.dirname(OUT), "stats.json"), encoding="utf-8") as f:
             return json.load(f)
     except (OSError, ValueError):
         return None
@@ -552,25 +556,32 @@ def profile():
 # ══════════════════════════════════════════════════════════════════════════════
 # FOOTER LINK BUTTONS — separate files only so the <a> links stay clickable
 # ══════════════════════════════════════════════════════════════════════════════
-def linkbtn(fname, label, color):
+def linkbtn(fname, label, color, bl=False, br=False):
+    """One cell of the footer bar. 4 × 215 = 860 — exactly the profile width, so the
+    row reads as the bottom edge of the image rather than four floating buttons.
+    bl / br round the outer bottom corners only; every other edge is square."""
     global W
-    keep, W = W, 204
-    h = 46
-    b = (f'<rect x="1.5" y="1.5" width="{W-3}" height="{h-3}" rx="10" fill="{CRYPT}"/>'
-         f'<rect x="1.5" y="1.5" width="{W-3}" height="{h-3}" rx="10" fill="url(#grid)"/>'
-         f'<rect x="1.5" y="1.5" width="{W-3}" height="{h-3}" rx="10" fill="none" '
-         f'stroke="{color}" stroke-opacity=".45" stroke-width="1.5"/>'
-         f'<circle cx="24" cy="{h/2}" r="4" fill="{color}" filter="url(#dot)"/>'
-         + txt(42, h / 2 + 4.5, label, color, 12.5, ls=1.8)
-         + txt(W - 18, h / 2 + 4.5, "→", ASH, 12.5, anchor="end"))
+    keep, W = W, 215
+    h, r = 52, 16
+    d = f"M0 0 H{W}"
+    d += f" V{h-r} A{r} {r} 0 0 1 {W-r} {h}" if br else f" V{h}"
+    d += f" H{r} A{r} {r} 0 0 1 0 {h-r}" if bl else " H0"
+    d += " Z"
+    b = (f'<path d="{d}" fill="{CRYPT}"/><path d="{d}" fill="url(#grid)"/>'
+         f'<path d="{d}" fill="url(#glowB)"/>'
+         f'<path d="{d}" fill="none" stroke="{MORTAR}" stroke-width="1.5"/>'
+         f'<rect x="0" y="0" width="{W}" height="2" fill="{color}" opacity=".5"/>'
+         f'<circle cx="26" cy="{h/2+1}" r="4" fill="{color}" filter="url(#dot)"/>'
+         + txt(44, h / 2 + 5.5, label, color, 12.5, ls=1.8)
+         + txt(W - 20, h / 2 + 5.5, "→", ASH, 12.5, anchor="end"))
     write(fname, svg(h, b))
     W = keep
 
 
 if __name__ == "__main__":
     profile()
-    linkbtn("link-autometiq.svg",  "AUTOMETIQ",  VERDIGRIS)
+    linkbtn("link-autometiq.svg",  "AUTOMETIQ",  VERDIGRIS,  bl=True)
     linkbtn("link-sixtyhours.svg", "SIXTYHOURS", BLOOD)
     linkbtn("link-email.svg",      "EMAIL",      CANDLE)
-    linkbtn("link-linkedin.svg",   "LINKEDIN",   NIGHTSHADE)
+    linkbtn("link-linkedin.svg",   "LINKEDIN",   NIGHTSHADE, br=True)
     print("\ndone.")
