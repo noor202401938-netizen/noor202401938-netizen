@@ -2,15 +2,19 @@
 """
 Noor Fatima — GitHub profile assets.
 
-ONE-SLAB layout: the profile is two tall continuous SVGs rather than ~19
-floating cards. Sections are separated by hairlines inside a single background,
-so the page reads as one designed surface instead of a stack of boxes.
+SINGLE-IMAGE layout: the entire profile is ONE svg. Every section lives inside
+one background separated by hairlines, so there are no seams and no page
+background showing between pieces.
 
-  slab-a.svg   hero · 01 SYSTEMS · 02 ARSENAL · 03 ACTIVITY label
-  (live stat widgets sit between the slabs — they're external images)
-  slab-b.svg   04 BUILT · 05 PRINCIPLES · 06 NOW · profile.json
+  profile.svg  hero · 01 SYSTEMS · 02 ARSENAL · 03 ACTIVITY
+               04 BUILT · 05 PRINCIPLES · 06 NOW · profile.json
   link-*.svg   footer buttons, separate only so the links stay clickable
+
+build.py is the RENDERER; stats.py is the data COLLECTOR. stats.py writes
+stats.json, build.py reads it. If stats.json is absent, the activity section
+renders a compact "awaiting first run" state rather than empty tiles.
 """
+import json
 import os
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
@@ -182,8 +186,122 @@ def write(name, content):
     print(f"  assets/{name}")
 
 
+# ── 03 ACTIVITY: charts ───────────────────────────────────────────────────────
+# Categorical order is FIXED and validated for colour-vision deficiency:
+#   passes lightness band, chroma floor, CVD separation, normal-vision floor and
+#   contrast against the dark surface. Do not reorder or extend these by eye —
+#   the UI accents FAIL the check (verdigris/moss are ΔE 6.4 apart).
+SERIES = ["#d94a5f", "#9b6fc4", "#009b80", "#b8871a"]
+
+
+def tile(x, y, w, value, label, accent):
+    b = f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="76" rx="11" fill="{VOID}" fill-opacity=".45"/>'
+    b += (f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="76" rx="11" fill="none" '
+          f'stroke="{MORTAR}" stroke-width="1"/>')
+    b += f'<rect x="{x+14:.1f}" y="{y+16}" width="3" height="20" rx="1.5" fill="{accent}" opacity=".9"/>'
+    b += txt(x + 26, y + 40, value, BONE, 27, weight=700)
+    b += txt(x + 26, y + 60, label, ASH, 10, ls=1.8)
+    return b
+
+
+def area_chart(x, y, w, h, series):
+    """Single series → no legend; the title names it. Peak is direct-labelled."""
+    vals = [c for _, c in series]
+    hi = max(vals)
+    scale = hi or 1
+    step = w / max(len(vals) - 1, 1)
+
+    b = txt(x, y - 22, "CONTRIBUTION SIGNAL — LAST 91 DAYS", ASH, 10.5, ls=1.8)
+    for f in (0.5, 1.0):
+        gy = y + h - h * f
+        b += (f'<line x1="{x}" y1="{gy:.1f}" x2="{x+w}" y2="{gy:.1f}" stroke="{MORTAR}" '
+              f'stroke-width="1" opacity=".55" stroke-dasharray="3 5"/>')
+    b += txt(x + w, y - 4, str(hi), ASH, 10, anchor="end")
+
+    pts = [(x + i * step, y + h - (v / scale) * h) for i, v in enumerate(vals)]
+    d = " ".join(f"{'M' if i == 0 else 'L'}{px:.1f} {py:.1f}" for i, (px, py) in enumerate(pts))
+    b += f'<path d="{d} L{x+w:.1f} {y+h} L{x} {y+h} Z" fill="{SERIES[0]}" fill-opacity=".16"/>'
+    b += (f'<path d="{d}" fill="none" stroke="{SERIES[0]}" stroke-width="2" '
+          f'stroke-linejoin="round" stroke-linecap="round"/>')
+    b += f'<line x1="{x}" y1="{y+h}" x2="{x+w}" y2="{y+h}" stroke="{MORTAR}" stroke-width="1"/>'
+
+    if hi:
+        pi = vals.index(hi)
+        px, py = pts[pi]
+        b += (f'<circle cx="{px:.1f}" cy="{py:.1f}" r="4.5" fill="{SERIES[0]}" '
+              f'stroke="{CRYPT}" stroke-width="2"/>')
+        lbl = f"peak {hi} · {series[pi][0]}"
+        anchor = "end" if px > x + w - 130 else "start"
+        ly = py + 18 if py - 12 < y else py - 11   # flip below when hugging the top
+        b += txt(px + (-9 if anchor == "end" else 9), ly, lbl, BONE, 10.5, anchor=anchor)
+
+    b += txt(x, y + h + 15, series[0][0], ASH, 10)
+    b += txt(x + w, y + h + 15, series[-1][0], ASH, 10, anchor="end")
+    return b
+
+
+def lang_bars(x, y, w, langs):
+    b = txt(x, y, "LANGUAGE MIX — BY BYTES ACROSS PUBLIC REPOS", ASH, 10.5, ls=1.8)
+    labw, valw = 140, 54
+    barw = w - labw - valw
+    hi = max((p for _, p in langs), default=1)
+    for i, (name, pct) in enumerate(langs):
+        ly = y + 26 + i * 26
+        col = ASH if name == "Other" else SERIES[i % len(SERIES)]
+        b += txt(x, ly + 9, name[:20], BONE, 12)      # text token, never the series colour
+        b += f'<rect x="{x+labw}" y="{ly}" width="{barw:.1f}" height="12" rx="6" fill="{MORTAR}" fill-opacity=".45"/>'
+        b += f'<rect x="{x+labw}" y="{ly}" width="{max(barw*(pct/hi),8):.1f}" height="12" rx="6" fill="{col}"/>'
+        b += txt(x + w, ly + 9, f"{pct:.1f}%", ASH, 11, anchor="end")
+    return b
+
+
+def load_stats():
+    try:
+        with open(os.path.join(os.path.dirname(OUT), "stats.json")) as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return None
+
+
+def activity(y):
+    """Returns (body, height). Renders a compact empty state when there's no data."""
+    body = sec("03", "ACTIVITY", "the receipts", VERDIGRIS, y)
+    y0, y = y, y + 40
+    s = load_stats()
+
+    if not s:
+        body += (f'<rect x="{PAD}" y="{y}" width="{CW}" height="64" rx="11" fill="{VOID}" '
+                 f'fill-opacity=".45" stroke="{MORTAR}" stroke-width="1"/>')
+        body += txt(PAD + 24, y + 27, "awaiting first workflow run", BONE, 13)
+        body += txt(PAD + 24, y + 46,
+                    "Actions ▸ profile stats ▸ Run workflow — then this fills with live data",
+                    ASH, 11)
+        return body, y + 64 - y0
+
+    gap, n = 20, 4
+    tw_ = (CW - gap * (n - 1)) / n
+    for i, (v, lab, c) in enumerate([
+        (s["contributions"], "CONTRIBUTIONS · 12 MO", SERIES[0]),
+        (s["repos"],         "PUBLIC REPOS",          SERIES[1]),
+        (s["stars"],         "STARS EARNED",          SERIES[2]),
+        (s["streak"],        "DAY STREAK",            SERIES[3])]):
+        body += tile(PAD + i * (tw_ + gap), y, tw_, str(v), lab, c)
+    y += 76 + 26
+    body += hairline(y)
+    y += 46
+    body += area_chart(PAD, y, CW, 132, [(d, c) for d, c in s["series"]])
+    y += 132 + 30
+    body += hairline(y)
+    y += 40
+    body += lang_bars(PAD, y, CW, [(n_, p) for n_, p in s["langs"]])
+    y += 26 + len(s["langs"]) * 26 + 14
+    body += txt(PAD, y, f"longest streak {s['longest']} days · {s['followers']} followers", ASH, 11)
+    body += txt(W - PAD, y, f"self-hosted · regenerated {s['stamp']}", ASH, 11, anchor="end")
+    return body, y + 6 - y0
+
+
 # ══════════════════════════════════════════════════════════════════════════════
-# SLAB A — hero · 01 SYSTEMS · 02 ARSENAL · 03 ACTIVITY
+# THE PROFILE — one continuous image
 # ══════════════════════════════════════════════════════════════════════════════
 def hero(y):
     b = txt(PAD, y + 40, "›", MOSS, 14) + txt(PAD + 18, y + 40, "whoami", VERDIGRIS, 14)
@@ -236,8 +354,7 @@ def product_col(x, y, name, domain, tagline, lines, stack, status, status_col, a
     return b, fy - y + 10
 
 
-def slab_a():
-    y = 38
+def part_a(y):
     body, hh = hero(y + 18)
     y += 18 + hh
 
@@ -291,17 +408,13 @@ def slab_a():
         body += chiprow(PAD + 212, ry - 13, items, col, size=12)
     y += 22 + len(rows) * 50
 
-    y += 30  # 03 ACTIVITY now opens stats.svg, which continues this column
-
-    h = y
-    write("slab-a.svg", svg(h, slab_ground(h) + titlebar("~/noor/profile — zsh") + body))
+    return body, y
 
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SLAB B — 04 BUILT · 05 PRINCIPLES · 06 NOW · profile.json
 # ══════════════════════════════════════════════════════════════════════════════
-def slab_b():
-    y = 44
+def part_b(y):
     body = sec("04", "BUILT", "shipped, not screenshotted", MOSS, y)
     y += 42
 
@@ -414,10 +527,26 @@ def slab_b():
 
     body += txt(PAD, y + 4, "CRYPT · #14141a — no falling bats, no snake on the graph.", ASH, 11.5)
     body += txt(W - PAD, y + 4, "› thanks for reading the source", ASH, 11.5, anchor="end")
-    y += 30
+    return body, y + 24
 
-    h = y
-    write("slab-b.svg", svg(h, slab_ground(h) + body))
+
+def profile():
+    """Compose every section into ONE image — no seams, no page background."""
+    y = 38
+    a, y = part_a(y)
+
+    y += 26
+    a += hairline(y)
+    y += 46
+    act, ah = activity(y)
+    y += ah
+
+    y += 26
+    a += hairline(y)
+    y += 46
+    b, y = part_b(y)
+
+    write("profile.svg", svg(y, slab_ground(y) + titlebar("~/noor/profile — zsh") + a + act + b))
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -439,8 +568,7 @@ def linkbtn(fname, label, color):
 
 
 if __name__ == "__main__":
-    slab_a()
-    slab_b()
+    profile()
     linkbtn("link-autometiq.svg",  "AUTOMETIQ",  VERDIGRIS)
     linkbtn("link-sixtyhours.svg", "SIXTYHOURS", BLOOD)
     linkbtn("link-email.svg",      "EMAIL",      CANDLE)
