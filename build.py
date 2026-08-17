@@ -291,11 +291,7 @@ def slab_a():
         body += chiprow(PAD + 212, ry - 13, items, col, size=12)
     y += 22 + len(rows) * 50
 
-    y += 14
-    body += hairline(y)
-    y += 40
-    body += sec("03", "ACTIVITY", "the receipts ↓", VERDIGRIS, y)
-    y += 34
+    y += 30  # 03 ACTIVITY now opens stats.svg, which continues this column
 
     h = y
     write("slab-a.svg", svg(h, slab_ground(h) + titlebar("~/noor/profile — zsh") + body))
@@ -416,6 +412,7 @@ def slab_b():
         body += txt(PAD + 136, ry, v, c, 13)
     y += 4 * 28
 
+    body += txt(PAD, y + 4, "CRYPT · #14141a — no falling bats, no snake on the graph.", ASH, 11.5)
     body += txt(W - PAD, y + 4, "› thanks for reading the source", ASH, 11.5, anchor="end")
     y += 30
 
