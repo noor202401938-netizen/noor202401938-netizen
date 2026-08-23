@@ -1,15 +1,11 @@
 {
- "contributions": 938,
- "repos": 6,
+ "contributions": 970,
+ "repos": 7,
  "stars": 0,
  "followers": 0,
- "streak": 3,
+ "streak": 4,
  "longest": 39,
  "series": [
-  [
-   "24 May",
-   0
-  ],
   [
    "25 May",
    0
@@ -368,17 +364,21 @@
   ],
   [
    "22 Aug",
-   3
+   19
+  ],
+  [
+   "23 Aug",
+   16
   ]
  ],
  "langs": [
   [
    "Jupyter Notebook",
-   79.6
+   78.2
   ],
   [
    "JavaScript",
-   15.0
+   14.8
   ],
   [
    "Dart",
@@ -386,12 +386,12 @@
   ],
   [
    "Python",
-   1.0
+   1.8
   ],
   [
    "Other",
-   0.8
+   1.6
   ]
  ],
- "stamp": "22 Aug 2026"
+ "stamp": "23 Aug 2026"
 }
