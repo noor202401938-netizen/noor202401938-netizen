@@ -1,15 +1,11 @@
 {
- "contributions": 1670,
+ "contributions": 1681,
  "repos": 12,
  "stars": 1,
  "followers": 2,
- "streak": 2,
+ "streak": 3,
  "longest": 39,
  "series": [
-  [
-   "21 Jul",
-   9
-  ],
   [
    "22 Jul",
    13
@@ -368,30 +364,34 @@
   ],
   [
    "19 Oct",
-   1
+   2
+  ],
+  [
+   "20 Oct",
+   10
   ]
  ],
  "langs": [
   [
    "Jupyter Notebook",
-   77.3
+   74.3
   ],
   [
    "JavaScript",
-   17.5
+   16.9
+  ],
+  [
+   "TypeScript",
+   4.3
   ],
   [
    "Dart",
    1.5
   ],
   [
-   "Python",
-   1.2
-  ],
-  [
    "Other",
-   2.5
+   3.1
   ]
  ],
- "stamp": "19 Oct 2026"
+ "stamp": "20 Oct 2026"
 }
